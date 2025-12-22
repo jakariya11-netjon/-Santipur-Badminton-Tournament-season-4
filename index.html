@@ -40,15 +40,18 @@ body::before{
   to{transform:scale(1.2);opacity:.9}
 }
 
+/* 🔧 FIXED PHONE HEIGHT */
 .phone{
-  width:360px;height:720px;
+  width:360px;
+  min-height:720px;
+  height:auto;
   border-radius:40px;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.98)),
     url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
   background-size:cover;
   background-position:center;
-  padding:25px;
+  padding:22px;
   color:white;
   position:relative;
   border:1px solid rgba(255,255,255,0.1);
@@ -56,22 +59,22 @@ body::before{
   overflow:hidden;
 }
 
-.title{text-align:center;margin-top:20px}
+.title{text-align:center;margin-top:15px}
 .title h1{
   font-family:'Orbitron';
-  font-size:12px;
+  font-size:11px;
   letter-spacing:2px;
   opacity:.7
 }
 .title h2{
   font-family:'Orbitron';
-  font-size:24px;
+  font-size:22px;
   color:var(--neon-cyan);
   text-shadow:0 0 15px rgba(0,245,255,.5)
 }
 .title h3{
   font-family:'Orbitron';
-  font-size:18px;
+  font-size:16px;
   color:var(--neon-pink);
   margin-top:6px;
   animation:glow 2s infinite alternate;
@@ -82,15 +85,16 @@ body::before{
   to{text-shadow:0 0 25px var(--neon-pink)}
 }
 
+/* 🔧 SMALLER PRIZE BOX */
 .prizes{
   display:flex;
-  gap:12px;
-  margin-top:25px
+  gap:10px;
+  margin-top:20px
 }
 .prize{
   flex:1;
-  padding:15px;
-  border-radius:15px;
+  padding:12px;
+  border-radius:14px;
   text-align:center;
   background:var(--glass);
   backdrop-filter:blur(10px);
@@ -99,28 +103,29 @@ body::before{
 .first{border-color:var(--gold)}
 .first span{
   display:block;
-  font-size:22px;
+  font-size:20px;
   font-weight:800;
   color:var(--gold)
 }
 .second span{
   display:block;
-  font-size:22px;
+  font-size:20px;
   font-weight:800
 }
 
+/* 🔧 SMALLER FEE BOX */
 .fee{
-  margin:20px auto;
+  margin:16px auto;
   text-align:center;
   border:2px solid var(--neon-cyan);
-  border-radius:20px;
-  padding:15px;
+  border-radius:18px;
+  padding:12px;
   width:90%;
   background:rgba(0,245,255,.05);
   font-weight:700
 }
 .fee span{
-  font-size:26px;
+  font-size:22px;
   color:var(--neon-cyan);
   text-shadow:0 0 10px var(--neon-cyan)
 }
@@ -128,50 +133,56 @@ body::before{
 /* DATE & CONTACT */
 .date-box,.contact-box{
   width:90%;
-  margin:15px auto 0;
-  padding:14px;
+  margin:14px auto 0;
+  padding:13px;
   text-align:center;
   border-radius:18px;
   background:linear-gradient(135deg,rgba(255,47,166,.15),rgba(0,245,255,.12));
   border:1px solid rgba(255,255,255,.2);
   backdrop-filter:blur(12px);
-  box-shadow:0 0 20px rgba(255,47,166,.25)
+  box-shadow:0 0 18px rgba(255,47,166,.25)
 }
+
 .date-box h4{
   font-family:'Orbitron';
-  font-size:14px;
+  font-size:13px;
   letter-spacing:2px;
   color:var(--neon-pink)
 }
 .date-box p{
-  margin-top:6px;
-  font-size:18px;
+  margin-top:5px;
+  font-size:17px;
   font-weight:800;
   color:var(--gold)
 }
+
+/* CONTACT */
 .contact-box h4{
   font-family:'Orbitron';
   font-size:13px;
   letter-spacing:2px;
   color:var(--neon-cyan)
 }
-.contact-box p{
-  margin-top:6px;
+.contact-box a{
+  display:block;
+  margin-top:4px;
   font-size:14px;
   font-weight:600;
-  line-height:1.5
+  color:white;
+  text-decoration:none;
 }
 
+/* REGISTER */
 .register{
   display:block;
-  margin:20px auto;
+  margin:18px auto;
   width:90%;
   background:linear-gradient(135deg,#00f5ff,#00ff99);
   color:#003c40;
-  padding:16px;
+  padding:15px;
   text-align:center;
   border-radius:40px;
-  font-size:19px;
+  font-size:18px;
   font-weight:900;
   box-shadow:0 0 30px rgba(0,255,255,.4);
   position:relative;
@@ -194,42 +205,26 @@ body::before{
   100%{left:150%}
 }
 
+/* ICONS */
 .icons{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:10px;
-  margin-top:20px
+  margin-top:16px
 }
 .icon{
   background:var(--glass);
   border:1px solid rgba(255,255,255,.1);
   border-radius:15px;
   text-align:center;
-  padding:12px 5px;
+  padding:10px 5px;
   font-size:10px;
-  color:white
-}
-
-.bottom{
-  display:flex;
-  gap:12px;
-  margin-top:18px
-}
-.bottom a{
-  flex:1;
-  text-align:center;
-  padding:12px;
-  border-radius:30px;
-  background:var(--glass);
-  border:1px solid rgba(255,255,255,.2);
-  font-size:12px;
-  color:white
+  color:white;
+  text-decoration:none;
 }
 
 .footer{
-  position:absolute;
-  bottom:15px;
-  width:100%;
+  margin-top:14px;
   text-align:center;
   font-size:10px;
   opacity:.4
@@ -260,11 +255,9 @@ body::before{
   </div>
 
   <div class="contact-box">
-    <h4>📞 CONTACT</h4>
-    <p>
-      +91 9XXXXXXXXX<br>
-      santipuryouth@gmail.com
-    </p>
+    <h4>CONTACT 📞</h4>
+    <a href="tel:+919XXXXXXXXX">+91 9XXXXXXXXX</a>
+    <a href="mailto:santipuryouth@gmail.com">santipuryouth@gmail.com</a>
   </div>
 
   <a href="register.html" class="register">▶ REGISTER NOW</a>
@@ -274,11 +267,6 @@ body::before{
     <a href="updates.html" class="icon">🔔<br>UPDATES</a>
     <a href="location.html" class="icon">📍<br>VENUE</a>
     <a href="sponsors.html" class="icon">🤝<br>SPONSORS</a>
-  </div>
-
-  <div class="bottom">
-    <a href="location.html">VIEW LOCATION</a>
-    <a href="schedule.html">MATCH SCHEDULE</a>
   </div>
 
   <div class="footer">© 2026 SANTIPUR YOUTH ASSOCIATION</div>
