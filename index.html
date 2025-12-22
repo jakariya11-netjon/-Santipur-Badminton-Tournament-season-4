@@ -10,22 +10,22 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-min-height:100vh;
-background:radial-gradient(circle at top,#0b1f26,#02090c);
-display:flex;justify-content:center;align-items:center;
-font-family:'Poppins',sans-serif
+  min-height:100vh;
+  background:radial-gradient(circle at top,#0b1f26,#02090c);
+  display:flex;justify-content:center;align-items:center;
+  font-family:'Poppins',sans-serif
 }
 a{text-decoration:none;color:inherit}
 
 /* PHONE CARD */
 .phone{
-width:360px;height:720px;border-radius:35px;
-background:
-linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,.95)),
-url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
-background-size:cover;background-position:center;
-padding:22px;color:white;position:relative;
-box-shadow:0 0 60px rgba(0,255,255,.25)
+  width:360px;height:720px;border-radius:35px;
+  background:
+    linear-gradient(to bottom,rgba(0,0,0,.85),rgba(0,0,0,.95)),
+    url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
+  background-size:cover;background-position:center;
+  padding:22px;color:white;position:relative;
+  box-shadow:0 0 60px rgba(0,255,255,.25)
 }
 
 /* TITLE */
@@ -43,53 +43,53 @@ box-shadow:0 0 60px rgba(0,255,255,.25)
 
 /* FEE */
 .fee{
-margin:20px auto;text-align:center;
-border:2px solid #00f5ff;border-radius:15px;
-padding:12px;width:80%;font-weight:700
+  margin:20px auto;text-align:center;
+  border:2px solid #00f5ff;border-radius:15px;
+  padding:12px;width:80%;font-weight:700
 }
 .fee span{font-size:22px}
 
-/* REGISTER BUTTON — CENTER FIXED */
+/* REGISTER BUTTON (CENTERED) */
 .register{
-display:block;              /* IMPORTANT */
-margin:20px auto;            /* CENTER */
-width:85%;
-background:linear-gradient(135deg,#00f5ff,#00ff99);
-color:#002c30;
-padding:14px;
-text-align:center;
-border-radius:30px;
-font-size:18px;
-font-weight:800;
-box-shadow:0 0 25px rgba(0,255,255,.6)
+  display:block;
+  margin:20px auto;
+  width:85%;
+  background:linear-gradient(135deg,#00f5ff,#00ff99);
+  color:#002c30;
+  padding:14px;
+  text-align:center;
+  border-radius:30px;
+  font-size:18px;
+  font-weight:800;
+  box-shadow:0 0 25px rgba(0,255,255,.6)
 }
 .register:hover{filter:brightness(1.05)}
 
 /* ICONS */
 .icons{
-display:grid;grid-template-columns:repeat(4,1fr);
-gap:10px;margin-top:20px
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:10px;margin-top:20px
 }
 .icon{
-border:1px solid rgba(255,255,255,.3);
-border-radius:12px;text-align:center;
-padding:10px 5px;font-size:11px
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:12px;text-align:center;
+  padding:10px 5px;font-size:11px
 }
 .icon:hover{background:rgba(255,255,255,.06)}
 
 /* BOTTOM BUTTONS */
 .bottom{display:flex;gap:12px;margin-top:15px}
 .bottom a{
-flex:1;border:1px solid rgba(255,255,255,.4);
-border-radius:12px;text-align:center;
-padding:12px;font-size:12px
+  flex:1;border:1px solid rgba(255,255,255,.4);
+  border-radius:12px;text-align:center;
+  padding:12px;font-size:12px
 }
 .bottom a:hover{background:rgba(255,255,255,.06)}
 
 /* FOOTER */
 .footer{
-position:absolute;bottom:12px;width:100%;
-text-align:center;font-size:10px;opacity:.7
+  position:absolute;bottom:12px;width:100%;
+  text-align:center;font-size:10px;opacity:.7
 }
 </style>
 </head>
@@ -112,10 +112,11 @@ text-align:center;font-size:10px;opacity:.7
 
   <a href="register.html" class="register">▶ REGISTER NOW</a>
 
+  <!-- IMPORTANT: RELATIVE LINKS (NO github.com/blob) -->
   <div class="icons">
     <a href="committee.html" class="icon">👥<br>COMMITTEE</a>
     <a href="updates.html" class="icon">🔔<br>UPDATES</a>
-    <a href="https://github.com/jakariya11-netjon/-Santipur-Badminton-Tournament-season-4/blob/main/location.html" class="icon">📍<br>LOCATION</a>
+    <a href="location.html" class="icon">📍<br>LOCATION</a>
     <a href="sponsors.html" class="icon">🤝<br>SPONSORS</a>
   </div>
 
@@ -129,4 +130,3 @@ text-align:center;font-size:10px;opacity:.7
 </div>
 </body>
 </html>
-
