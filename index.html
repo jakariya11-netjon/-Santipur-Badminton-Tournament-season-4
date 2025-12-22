@@ -8,13 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --neon-cyan: #00f5ff;
-  --neon-pink: #ff2fa6;
-  --gold: #ffd700;
-  --glass: rgba(255, 255, 255, 0.08);
+:root{
+  --neon-cyan:#00f5ff;
+  --neon-pink:#ff2fa6;
+  --gold:#ffd700;
+  --glass:rgba(255,255,255,0.08);
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
@@ -27,197 +26,111 @@ body{
   overflow:hidden;
 }
 
-body::before{
-  content:'';
-  position:absolute;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(0,245,255,0.12),transparent 70%);
-  animation:pulseBg 6s infinite alternate;
-}
-
-@keyframes pulseBg{
-  from{transform:scale(1);opacity:.5}
-  to{transform:scale(1.2);opacity:.9}
-}
-
-/* 🔧 FIXED PHONE HEIGHT */
 .phone{
   width:360px;
   min-height:720px;
-  height:auto;
   border-radius:40px;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.98)),
+    linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.98)),
     url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
   background-size:cover;
   background-position:center;
   padding:22px;
   color:white;
-  position:relative;
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 0 100px rgba(0,0,0,0.6);
-  overflow:hidden;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 0 100px rgba(0,0,0,.6);
 }
 
 .title{text-align:center;margin-top:15px}
-.title h1{
-  font-family:'Orbitron';
-  font-size:11px;
-  letter-spacing:2px;
-  opacity:.7
-}
-.title h2{
-  font-family:'Orbitron';
-  font-size:22px;
-  color:var(--neon-cyan);
-  text-shadow:0 0 15px rgba(0,245,255,.5)
-}
-.title h3{
-  font-family:'Orbitron';
-  font-size:16px;
-  color:var(--neon-pink);
-  margin-top:6px;
-  animation:glow 2s infinite alternate;
-}
+.title h1{font-size:11px;letter-spacing:2px;opacity:.7;font-family:'Orbitron'}
+.title h2{font-size:22px;color:var(--neon-cyan);font-family:'Orbitron'}
+.title h3{font-size:16px;color:var(--neon-pink);font-family:'Orbitron'}
 
-@keyframes glow{
-  from{text-shadow:0 0 5px var(--neon-pink)}
-  to{text-shadow:0 0 25px var(--neon-pink)}
-}
-
-/* 🔧 SMALLER PRIZE BOX */
-.prizes{
-  display:flex;
-  gap:10px;
-  margin-top:20px
-}
+.prizes{display:flex;gap:10px;margin-top:18px}
 .prize{
   flex:1;
   padding:12px;
   border-radius:14px;
-  text-align:center;
   background:var(--glass);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.1)
+  text-align:center;
 }
-.first{border-color:var(--gold)}
-.first span{
-  display:block;
-  font-size:20px;
-  font-weight:800;
-  color:var(--gold)
-}
-.second span{
-  display:block;
-  font-size:20px;
-  font-weight:800
-}
+.first span{color:var(--gold);font-size:20px;font-weight:800}
+.second span{font-size:20px;font-weight:800}
 
-/* 🔧 SMALLER FEE BOX */
 .fee{
   margin:16px auto;
-  text-align:center;
-  border:2px solid var(--neon-cyan);
-  border-radius:18px;
-  padding:12px;
   width:90%;
-  background:rgba(0,245,255,.05);
-  font-weight:700
+  padding:12px;
+  border-radius:18px;
+  border:2px solid var(--neon-cyan);
+  text-align:center;
 }
-.fee span{
-  font-size:22px;
-  color:var(--neon-cyan);
-  text-shadow:0 0 10px var(--neon-cyan)
+.fee span{font-size:22px;color:var(--neon-cyan)}
+
+ /* 🔥 DATE + CONTACT SAME ROW */
+.row{
+  display:flex;
+  gap:10px;
+  margin-top:14px;
 }
 
-/* DATE & CONTACT */
 .date-box,.contact-box{
-  width:90%;
-  margin:14px auto 0;
-  padding:13px;
-  text-align:center;
-  border-radius:18px;
+  flex:1;
+  padding:12px;
+  border-radius:16px;
   background:linear-gradient(135deg,rgba(255,47,166,.15),rgba(0,245,255,.12));
-  border:1px solid rgba(255,255,255,.2);
-  backdrop-filter:blur(12px);
-  box-shadow:0 0 18px rgba(255,47,166,.25)
+  text-align:center;
 }
 
 .date-box h4{
+  font-size:12px;
+  letter-spacing:1px;
+  color:var(--neon-pink);
   font-family:'Orbitron';
-  font-size:13px;
-  letter-spacing:2px;
-  color:var(--neon-pink)
 }
 .date-box p{
-  margin-top:5px;
-  font-size:17px;
+  margin-top:4px;
+  font-size:15px;
   font-weight:800;
-  color:var(--gold)
+  color:var(--gold);
 }
 
-/* CONTACT */
 .contact-box h4{
+  font-size:12px;
+  color:var(--neon-cyan);
   font-family:'Orbitron';
-  font-size:13px;
-  letter-spacing:2px;
-  color:var(--neon-cyan)
 }
 .contact-box a{
   display:block;
-  margin-top:4px;
-  font-size:14px;
-  font-weight:600;
+  font-size:13px;
   color:white;
   text-decoration:none;
 }
 
-/* REGISTER */
 .register{
-  display:block;
   margin:18px auto;
   width:90%;
+  padding:15px;
+  border-radius:40px;
   background:linear-gradient(135deg,#00f5ff,#00ff99);
   color:#003c40;
-  padding:15px;
   text-align:center;
-  border-radius:40px;
   font-size:18px;
   font-weight:900;
-  box-shadow:0 0 30px rgba(0,255,255,.4);
-  position:relative;
-  overflow:hidden;
+  display:block;
 }
 
-.register::after{
-  content:'';
-  position:absolute;
-  top:-50%;left:-100%;
-  width:50%;height:200%;
-  background:rgba(255,255,255,.5);
-  transform:rotate(30deg);
-  animation:swipe 3s infinite
-}
-
-@keyframes swipe{
-  0%{left:-100%}
-  20%{left:150%}
-  100%{left:150%}
-}
-
-/* ICONS */
 .icons{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:10px;
-  margin-top:16px
+  margin-top:16px;
 }
 .icon{
-  background:var(--glass);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:15px;
-  text-align:center;
   padding:10px 5px;
+  border-radius:15px;
+  background:var(--glass);
+  text-align:center;
   font-size:10px;
   color:white;
   text-decoration:none;
@@ -227,7 +140,7 @@ body::before{
   margin-top:14px;
   text-align:center;
   font-size:10px;
-  opacity:.4
+  opacity:.4;
 }
 </style>
 </head>
@@ -249,15 +162,18 @@ body::before{
 
   <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
 
-  <div class="date-box">
-    <h4>EVENT DATE</h4>
-    <p>JANUARY 17 & 18, 2026</p>
-  </div>
+  <!-- DATE + CONTACT SAME ROW -->
+  <div class="row">
+    <div class="date-box">
+      <h4>EVENT DATE</h4>
+      <p>JAN 17–18, 2026</p>
+    </div>
 
-  <div class="contact-box">
-    <h4>CONTACT 📞</h4>
-    <a href="tel:+919XXXXXXXXX">+91 9XXXXXXXXX</a>
-    <a href="mailto:santipuryouth@gmail.com">santipuryouth@gmail.com</a>
+    <div class="contact-box">
+      <h4>CONTACT 📞</h4>
+      <a href="tel:+919XXXXXXXXX">+91 9XXXXXXXXX</a>
+      <a href="mailto:santipuryouth@gmail.com">santipuryouth@gmail.com</a>
+    </div>
   </div>
 
   <a href="register.html" class="register">▶ REGISTER NOW</a>
