@@ -44,18 +44,52 @@ body{
 .title{text-align:center;margin-top:15px}
 .title h1{font-size:11px;letter-spacing:2px;opacity:.7;font-family:'Orbitron'}
 .title h2{font-size:22px;color:var(--neon-cyan);font-family:'Orbitron'}
+
+/* --- NEW STYLE FOR COLORFUL TEXT --- */
+.full-color-text {
+  /* Create a gradient background using theme colors */
+  background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold), var(--neon-cyan));
+  background-size: 200% auto;
+  /* Clip the background to the text shape */
+  -webkit-background-clip: text;
+  background-clip: text;
+  /* Make the actual text color transparent so background shows through */
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block; /* Ensures clip works correctly */
+}
+/* ----------------------------------- */
+
 .title h3{font-size:16px;color:var(--neon-pink);font-family:'Orbitron'}
 
 .prizes{display:flex;gap:10px;margin-top:18px}
+
 .prize{
   flex:1;
-  padding:12px;
+  padding:15px 5px;
   border-radius:14px;
   background:var(--glass);
   text-align:center;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
 }
-.first span{color:var(--gold);font-size:20px;font-weight:800}
-.second span{font-size:20px;font-weight:800}
+
+.prize-label{
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.prize-amount{
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.first .prize-amount{color:var(--gold);}
+.second .prize-amount{color:white;}
 
 .fee{
   margin:16px auto;
@@ -67,19 +101,23 @@ body{
 }
 .fee span{font-size:22px;color:var(--neon-cyan)}
 
- /* 🔥 DATE + CONTACT SAME ROW */
 .row{
   display:flex;
   gap:10px;
   margin-top:14px;
 }
 
-.date-box,.contact-box{
+.date-box, .contact-box{
   flex:1;
   padding:12px;
   border-radius:16px;
   background:linear-gradient(135deg,rgba(255,47,166,.15),rgba(0,245,255,.12));
   text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-decoration: none;
 }
 
 .date-box h4{
@@ -96,15 +134,10 @@ body{
 }
 
 .contact-box h4{
-  font-size:12px;
+  font-size:14px;
   color:var(--neon-cyan);
   font-family:'Orbitron';
-}
-.contact-box a{
-  display:block;
-  font-size:13px;
-  color:white;
-  text-decoration:none;
+  margin:0;
 }
 
 .register{
@@ -118,6 +151,7 @@ body{
   font-size:18px;
   font-weight:900;
   display:block;
+  text-decoration: none;
 }
 
 .icons{
@@ -151,29 +185,32 @@ body{
   <div class="title">
     <h1>SANTIPUR YOUTH ASSOCIATION</h1>
     <h2>BADMINTON</h2>
-    <h2 style="margin-top:-5px">TOURNAMENT</h2>
+    <h2 class="full-color-text" style="margin-top:-5px">TOURNAMENT</h2>
     <h3>SEASON 4</h3>
   </div>
 
   <div class="prizes">
-    <div class="prize first">1ST PRIZE<span>₹15,000</span></div>
-    <div class="prize second">2ND PRIZE<span>₹10,000</span></div>
+    <div class="prize first">
+        <span class="prize-label">1ST PRIZE</span>
+        <span class="prize-amount">₹15,000</span>
+    </div>
+    <div class="prize second">
+        <span class="prize-label">2ND PRIZE</span>
+        <span class="prize-amount">₹10,000</span>
+    </div>
   </div>
 
   <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
 
-  <!-- DATE + CONTACT SAME ROW -->
   <div class="row">
     <div class="date-box">
       <h4>EVENT DATE</h4>
       <p>JAN 17–18, 2026</p>
     </div>
 
-    <div class="contact-box">
+    <a href="contact.html" class="contact-box">
       <h4>CONTACT 📞</h4>
-      <a href="tel:+919XXXXXXXXX">+91 9XXXXXXXXX</a>
-      <a href="mailto:santipuryouth@gmail.com">santipuryouth@gmail.com</a>
-    </div>
+    </a>
   </div>
 
   <a href="register.html" class="register">▶ REGISTER NOW</a>
@@ -190,3 +227,4 @@ body{
 </div>
 </body>
 </html>
+
