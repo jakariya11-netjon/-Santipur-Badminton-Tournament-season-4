@@ -19,119 +19,220 @@
 
 body{
   min-height:100vh;
-  background: #02090c;
-  display:flex;justify-content:center;align-items:center;
+  background:#02090c;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-family:'Poppins',sans-serif;
-  overflow: hidden;
+  overflow:hidden;
 }
 
-/* Background light effects */
-body::before {
-  content: '';
-  position: absolute;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.1) 0%, transparent 70%);
-  animation: pulseBg 6s infinite alternate;
+body::before{
+  content:'';
+  position:absolute;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(0,245,255,0.12),transparent 70%);
+  animation:pulseBg 6s infinite alternate;
 }
 
-@keyframes pulseBg {
-  from { transform: scale(1); opacity: 0.5; }
-  to { transform: scale(1.2); opacity: 0.8; }
+@keyframes pulseBg{
+  from{transform:scale(1);opacity:.5}
+  to{transform:scale(1.2);opacity:.9}
 }
 
 .phone{
-  width:360px;height:720px;border-radius:40px;
-  background: 
+  width:360px;height:720px;
+  border-radius:40px;
+  background:
     linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.98)),
     url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
-  background-size:cover;background-position:center;
-  padding:25px;color:white;position:relative;
-  box-shadow:0 0 100px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.1);
-  overflow: hidden;
+  background-size:cover;
+  background-position:center;
+  padding:25px;
+  color:white;
+  position:relative;
+  border:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 0 100px rgba(0,0,0,0.6);
+  overflow:hidden;
 }
 
 .title{text-align:center;margin-top:20px}
-.title h1{font-family:'Orbitron';font-size:12px; letter-spacing: 2px; opacity: 0.7; color: white;}
-.title h2{font-family:'Orbitron';font-size:24px; color: var(--neon-cyan); text-shadow: 0 0 15px rgba(0,245,255,0.5);}
+.title h1{
+  font-family:'Orbitron';
+  font-size:12px;
+  letter-spacing:2px;
+  opacity:.7
+}
+.title h2{
+  font-family:'Orbitron';
+  font-size:24px;
+  color:var(--neon-cyan);
+  text-shadow:0 0 15px rgba(0,245,255,.5)
+}
 .title h3{
-    font-family:'Orbitron';font-size:18px; color: var(--neon-pink);
-    margin-top:6px; animation: glow 2s infinite alternate;
+  font-family:'Orbitron';
+  font-size:18px;
+  color:var(--neon-pink);
+  margin-top:6px;
+  animation:glow 2s infinite alternate;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 5px var(--neon-pink); }
-  to { text-shadow: 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink); }
+@keyframes glow{
+  from{text-shadow:0 0 5px var(--neon-pink)}
+  to{text-shadow:0 0 25px var(--neon-pink)}
 }
 
-.prizes{display:flex;gap:12px;margin-top:30px}
+.prizes{
+  display:flex;
+  gap:12px;
+  margin-top:25px
+}
 .prize{
-  flex:1; border-radius:15px; padding:15px; text-align:center;
-  background: var(--glass); backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  flex:1;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.1)
 }
-.first { border-color: var(--gold); box-shadow: 0 0 15px rgba(255,215,0,0.2); }
-.first span { color: var(--gold); font-size: 22px; font-weight: 800; display: block; }
-.second span { color: #fff; font-size: 22px; font-weight: 800; display: block; }
+.first{border-color:var(--gold)}
+.first span{
+  display:block;
+  font-size:22px;
+  font-weight:800;
+  color:var(--gold)
+}
+.second span{
+  display:block;
+  font-size:22px;
+  font-weight:800
+}
 
 .fee{
-  margin:25px auto; text-align:center;
-  border: 2px solid var(--neon-cyan); border-radius: 20px;
-  padding:15px; width:90%; font-weight:700;
-  background: rgba(0, 245, 255, 0.05);
+  margin:20px auto;
+  text-align:center;
+  border:2px solid var(--neon-cyan);
+  border-radius:20px;
+  padding:15px;
+  width:90%;
+  background:rgba(0,245,255,.05);
+  font-weight:700
 }
-.fee span{ font-size: 26px; color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
+.fee span{
+  font-size:26px;
+  color:var(--neon-cyan);
+  text-shadow:0 0 10px var(--neon-cyan)
+}
+
+/* DATE & CONTACT */
+.date-box,.contact-box{
+  width:90%;
+  margin:15px auto 0;
+  padding:14px;
+  text-align:center;
+  border-radius:18px;
+  background:linear-gradient(135deg,rgba(255,47,166,.15),rgba(0,245,255,.12));
+  border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 20px rgba(255,47,166,.25)
+}
+.date-box h4{
+  font-family:'Orbitron';
+  font-size:14px;
+  letter-spacing:2px;
+  color:var(--neon-pink)
+}
+.date-box p{
+  margin-top:6px;
+  font-size:18px;
+  font-weight:800;
+  color:var(--gold)
+}
+.contact-box h4{
+  font-family:'Orbitron';
+  font-size:13px;
+  letter-spacing:2px;
+  color:var(--neon-cyan)
+}
+.contact-box p{
+  margin-top:6px;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.5
+}
 
 .register{
-  display:block; margin:20px auto; width:90%;
-  background: linear-gradient(135deg, #00f5ff, #00ff99);
-  color: #002c30; padding:16px; text-align:center;
-  border-radius:40px; font-size:19px; font-weight:900;
-  box-shadow: 0 0 30px rgba(0,255,255,0.4);
-  position: relative; overflow: hidden;
+  display:block;
+  margin:20px auto;
+  width:90%;
+  background:linear-gradient(135deg,#00f5ff,#00ff99);
+  color:#003c40;
+  padding:16px;
+  text-align:center;
+  border-radius:40px;
+  font-size:19px;
+  font-weight:900;
+  box-shadow:0 0 30px rgba(0,255,255,.4);
+  position:relative;
+  overflow:hidden;
 }
 
-/* Light Swipe Effect */
-.register::after {
-  content: '';
-  position: absolute;
-  top: -50%; left: -100%;
-  width: 50%; height: 200%;
-  background: rgba(255,255,255,0.5);
-  transform: rotate(30deg);
-  animation: swipe 3s infinite;
+.register::after{
+  content:'';
+  position:absolute;
+  top:-50%;left:-100%;
+  width:50%;height:200%;
+  background:rgba(255,255,255,.5);
+  transform:rotate(30deg);
+  animation:swipe 3s infinite
 }
 
-@keyframes swipe {
-  0% { left: -100%; }
-  20% { left: 150%; }
-  100% { left: 150%; }
+@keyframes swipe{
+  0%{left:-100%}
+  20%{left:150%}
+  100%{left:150%}
 }
 
-.icons{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:25px}
+.icons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:20px
+}
 .icon{
-  background: var(--glass);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius:15px; text-align:center;
-  padding:12px 5px; font-size:10px; color: white; /* TEXT IS WHITE */
-  transition: 0.3s;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:15px;
+  text-align:center;
+  padding:12px 5px;
+  font-size:10px;
+  color:white
 }
-.icon:hover { border-color: var(--neon-cyan); background: rgba(0,245,255,0.1); }
 
-.bottom{display:flex; gap:12px; margin-top:20px}
-.bottom a{
-  flex:1; border: 1px solid rgba(255,255,255,0.2);
-  border-radius:30px; text-align:center;
-  padding:12px; font-size:12px; font-weight: 600;
-  background: var(--glass);
-  color: white; /* CHANGED FROM BLUE TO WHITE */
-  transition: 0.3s;
+.bottom{
+  display:flex;
+  gap:12px;
+  margin-top:18px
 }
-.bottom a:hover { border-color: var(--neon-pink); color: var(--neon-pink); }
+.bottom a{
+  flex:1;
+  text-align:center;
+  padding:12px;
+  border-radius:30px;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,.2);
+  font-size:12px;
+  color:white
+}
 
 .footer{
-  position:absolute; bottom:15px; width:100%; left:0;
-  text-align:center; font-size:10px; opacity:0.4; letter-spacing: 1px;
+  position:absolute;
+  bottom:15px;
+  width:100%;
+  text-align:center;
+  font-size:10px;
+  opacity:.4
 }
 </style>
 </head>
@@ -153,6 +254,19 @@ body::before {
 
   <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
 
+  <div class="date-box">
+    <h4>EVENT DATE</h4>
+    <p>JANUARY 17 & 18, 2026</p>
+  </div>
+
+  <div class="contact-box">
+    <h4>📞 CONTACT</h4>
+    <p>
+      +91 9XXXXXXXXX<br>
+      santipuryouth@gmail.com
+    </p>
+  </div>
+
   <a href="register.html" class="register">▶ REGISTER NOW</a>
 
   <div class="icons">
@@ -167,7 +281,7 @@ body::before {
     <a href="schedule.html">MATCH SCHEDULE</a>
   </div>
 
-  <div class="footer">© 2025 SANTIPUR YOUTH ASSOCIATION</div>
+  <div class="footer">© 2026 SANTIPUR YOUTH ASSOCIATION</div>
 
 </div>
 </body>
