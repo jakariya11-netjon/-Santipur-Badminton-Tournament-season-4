@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel</title>
+</head>
+
+<body>
+
+    <h2>Admin – Live Score Update</h2>
+
+    <input id="a" placeholder="Team A" /><br><br>
+    <input id="b" placeholder="Team B" /><br><br>
+    <input id="sa" type="number" placeholder="Score A" /><br><br>
+    <input id="sb" type="number" placeholder="Score B" /><br><br>
+
+    <button onclick="updateScore()">UPDATE SCORE</button>
+
+    <hr>
+
+    <textarea id="notice" placeholder="Notice"></textarea><br><br>
+    <button onclick="updateNotice()">UPDATE NOTICE</button>
+
+    <script src="firebase.js"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
