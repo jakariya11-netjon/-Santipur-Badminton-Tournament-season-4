@@ -1,12 +1,13 @@
 // app.js (Public live updates)
 const db = firebase.database();
 
+/* 🔴 CURRENT MATCH – Live score + status */
 db.ref("currentMatch").on("value", (snap) => {
     const d = snap.val();
     if (!d) return;
 
     document.getElementById("liveMatch").innerText =
-        d.teamA + " vs " + d.teamB;
+        d.teamA + " 🆚 " + d.teamB;
 
     document.getElementById("liveScore").innerText =
         d.scoreA + " - " + d.scoreB;
@@ -15,6 +16,16 @@ db.ref("currentMatch").on("value", (snap) => {
         d.status;
 });
 
+/* 🟡 NEXT MATCH (separate control) */
+db.ref("nextMatch").on("value", (snap) => {
+    const n = snap.val();
+    if (!n) return;
+
+    document.getElementById("liveMatch").innerText =
+        n.teamA + " 🆚 " + n.teamB;
+});
+
+/* 🔵 LIVE NOTICE */
 db.ref("notice").on("value", (snap) => {
     const n = snap.val();
     if (n !== null) {
