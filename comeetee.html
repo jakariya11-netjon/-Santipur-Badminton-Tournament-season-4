@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Committee – Santipur Youth Association</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --neon-cyan: #00f5ff;
+            --neon-pink: #ff2fa6;
+            --dark: #02090c;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            background: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .container {
+            max-width: 430px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Orbitron';
+            color: var(--neon-cyan);
+            margin-bottom: 30px;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            margin: 30px 0 14px;
+            font-size: 16px;
+            font-family: 'Orbitron';
+            color: var(--neon-pink);
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 10px;
+        }
+
+        /* GRID */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        /* MEMBER CARD */
+        .card {
+            background: var(--glass);
+            border-radius: 18px;
+            padding: 14px;
+            text-align: center;
+        }
+
+        /* PHOTO FRAME (IMAGE LINK SUPPORT) */
+        .photo {
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 16px;
+            border: 3px solid var(--neon-cyan);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* NAME & ROLE */
+        .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neon-cyan);
+        }
+
+        .role {
+            font-size: 12px;
+            opacity: .8;
+            margin-top: 2px;
+        }
+
+        .phone {
+            font-size: 12px;
+            margin-top: 4px;
+            opacity: .9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Committee Members</h1>
+
+        <!-- PRESIDENT -->
+        <div class="section-title">সভাপতি (President)</div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Rozibul Islam</div>
+                <div class="role">President</div>
+                <div class="phone">📞 6003506950</div>
+            </div>
+        </div>
+
+        <!-- VICE PRESIDENT -->
+        <div class="section-title">উপ সভাপতি (Vice President)</div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Sanower Islam</div>
+                <div class="role">Vice President</div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Foridul Islam</div>
+                <div class="role">Vice President</div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Abul Kalam Azad</div>
+                <div class="role">Vice President</div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Nur Zaman</div>
+                <div class="role">Vice President</div>
+            </div>
+        </div>
+
+        <!-- SECRETARY -->
+        <div class="section-title">সম্পাদক (Secretary)</div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Abdul Wahid Ahmed</div>
+                <div class="role">Secretary</div>
+                <div class="phone">📞 9706845189</div>
+            </div>
+        </div>
+
+        <!-- JOINT SECRETARY -->
+        <div class="section-title">সহ সম্পাদক (Joint Secretary)</div>
+        <div class="grid">
+            <div class="card">
+                <img src="jakariya.jpeg" class="photo">
+                <div class="name">Jakariya Ahmed</div>
+                <div class="role">Joint Secretary</div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Muktar Hussein</div>
+                <div class="role">Joint Secretary</div>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Abu Bokkar</div>
+                <div class="role">Joint Secretary</div>
+            </div>
+        </div>
+
+        <!-- TREASURER -->
+        <div class="section-title">ধন ভঁৰালী (Treasurer)</div>
+        <div class="grid">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x300?text=Photo" class="photo">
+                <div class="name">Abdul Motaleb</div>
+                <div class="role">Treasurer</div>
+                <div class="phone">📞 6001575127</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
