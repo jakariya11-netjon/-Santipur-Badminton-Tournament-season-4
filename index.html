@@ -12,17 +12,25 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-
     <link
 
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
 
         rel="stylesheet">
 
-
-
     <style>
+#liveScore {
+  animation: glow 1.2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00f5ff;
+  }
+  to {
+    text-shadow: 0 0 25px #ff2fa6;
+  }
+}
 
         :root {
 
@@ -707,3 +715,4 @@
 
 
 </html>
+
