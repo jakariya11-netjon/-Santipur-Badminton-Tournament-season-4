@@ -11,11 +11,9 @@
             color: white;
             padding: 20px;
         }
-
         h2, h3 {
             color: #00f5ff;
         }
-
         input, textarea, button {
             width: 100%;
             padding: 10px;
@@ -24,18 +22,13 @@
             border: none;
             outline: none;
         }
-
-        textarea {
-            height: 80px;
-        }
-
+        textarea { height: 80px; }
         button {
             background: linear-gradient(135deg, #00f5ff, #ff2fa6);
             color: black;
             font-weight: bold;
             cursor: pointer;
         }
-
         hr {
             margin: 25px 0;
             border: 1px solid #333;
@@ -56,47 +49,40 @@
 
 <h2>🏸 Admin – Live Score Panel</h2>
 
-<!-- 🔴 LIVE SCORE UPDATE -->
 <h3>Live Match Score</h3>
-
-<input id="a" placeholder="Team A / Player A" />
-<input id="b" placeholder="Team B / Player B" />
-<input id="sa" type="number" placeholder="Score A" />
-<input id="sb" type="number" placeholder="Score B" />
-
+<input id="a" placeholder="Team A / Player A">
+<input id="b" placeholder="Team B / Player B">
+<input id="sa" type="number" placeholder="Score A">
+<input id="sb" type="number" placeholder="Score B">
 <button onclick="updateScore()">UPDATE SCORE</button>
 
 <hr>
 
-<!-- 🟡 NEXT MATCH CONTROL -->
 <h3>Next Match</h3>
-
-<input id="nmA" placeholder="Next Match Team A" />
-<input id="nmB" placeholder="Next Match Team B" />
-
+<input id="nmA" placeholder="Next Match Team A">
+<input id="nmB" placeholder="Next Match Team B">
 <button onclick="updateNextMatch()">UPDATE NEXT MATCH</button>
 
 <hr>
 
-<!-- 🔵 NOTICE CONTROL -->
 <h3>Live Notice</h3>
-
 <textarea id="notice" placeholder="Type notice here..."></textarea>
-
 <button onclick="updateNotice()">UPDATE NOTICE</button>
 
 <hr>
 
-<!-- 🏁 FINISH MATCH -->
 <h3>Match Control</h3>
-
 <button onclick="finishMatch()">FINISH MATCH</button>
 
-<!-- 🔥 FIREBASE FILES -->
-<script src="firebase.js"></script>
-<script src="admin.js"></script>
+<!-- 🔥 Firebase CDN (VERY IMPORTANT) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
+<!-- 🔥 Your Firebase config -->
+<script src="firebase.js"></script>
+
+<!-- 🔥 Admin logic -->
+<script src="admin.js"></script>
 
 </body>
 </html>
-
