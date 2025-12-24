@@ -1,16 +1,16 @@
-< !--firebase.js -->
+<!-- firebase.js -->
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
 <script>
-  const firebaseConfig = {
-    apiKey: "PASTE_YOUR_API_KEY",
-    authDomain: "PASTE_YOUR_AUTH_DOMAIN",
-    databaseURL: "PASTE_YOUR_DATABASE_URL",
-    projectId: "PASTE_YOUR_PROJECT_ID",
-    storageBucket: "PASTE_YOUR_STORAGE_BUCKET",
-    messagingSenderId: "PASTE_YOUR_SENDER_ID",
-    appId: "PASTE_YOUR_APP_ID"
+  var firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "badminton-live-score-a4fa8.firebaseapp.com",
+    databaseURL: "https://badminton-live-score-a4fa8-default-rtdb.firebaseio.com",
+    projectId: "badminton-live-score-a4fa8",
+    storageBucket: "badminton-live-score-a4fa8.appspot.com",
+    messagingSenderId: "XXXX",
+    appId: "XXXX"
   };
 
   firebase.initializeApp(firebaseConfig);
