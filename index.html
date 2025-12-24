@@ -1,717 +1,174 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-
-
 <head>
-
     <meta charset="UTF-8">
-
     <title>Santipur Youth Association Badminton Tournament</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link
-
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
-
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-#liveScore {
-  animation: glow 1.2s infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #00f5ff;
-  }
-  to {
-    text-shadow: 0 0 25px #ff2fa6;
-  }
-}
+        #liveScore {
+            animation: glow 1.2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00f5ff; }
+            to { text-shadow: 0 0 25px #ff2fa6; }
+        }
 
         :root {
-
             --neon-cyan: #00f5ff;
-
             --neon-pink: #ff2fa6;
-
             --gold: #ffd700;
-
             --dark: #02090c;
-
-            --glass: rgba(255, 255, 255, .08)
-
+            --glass: rgba(255,255,255,.08)
         }
 
-
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box
-
-        }
-
-
+        * { margin:0; padding:0; box-sizing:border-box }
 
         body {
-
-            background: var(--dark);
-
-            font-family: Poppins, sans-serif;
-
-            color: #fff;
-
-            /* Animated background gradient for extra flair */
-
-            background: linear-gradient(-45deg, #02090c, #05161d, #0a1f29, #02090c);
-
-            background-size: 400% 400%;
-
-            animation: gradientBG 15s ease infinite;
-
+            font-family:Poppins,sans-serif;
+            color:#fff;
+            background:linear-gradient(-45deg,#02090c,#05161d,#0a1f29,#02090c);
+            background-size:400% 400%;
+            animation:gradientBG 15s ease infinite;
         }
-
-
-
         @keyframes gradientBG {
-
-            0% {
-
-                background-position: 0% 50%;
-
-            }
-
-
-
-            50% {
-
-                background-position: 100% 50%;
-
-            }
-
-
-
-            100% {
-
-                background-position: 0% 50%;
-
-            }
-
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
         }
 
-
-
-        .android {
-
-            max-width: 430px;
-
-            margin: auto;
-
-            position: relative;
-
-        }
-
-
-
+        .android { max-width:430px; margin:auto }
         .hero {
-
-            min-height: 100vh;
-
-            padding: 20px;
-
-            /* Added a more high-action badminton background with an overlay */
-
+            min-height:100vh;
+            padding:20px;
             background:
-
-                linear-gradient(to bottom, rgba(2, 9, 12, 0.7), rgba(2, 9, 12, 0.95)),
-
-                url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
-
-            background-size: cover;
-
-            background-position: center;
-
-            border-bottom: 2px solid var(--neon-cyan);
-
+              linear-gradient(to bottom,rgba(2,9,12,.7),rgba(2,9,12,.95)),
+              url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
+            background-size:cover;
+            background-position:center;
+            border-bottom:2px solid var(--neon-cyan);
         }
 
+        .title{text-align:center;margin-top:20px}
+        .title h1{font-size:11px;letter-spacing:2px;opacity:.7;font-family:Orbitron}
+        .title h2{font-size:26px;color:var(--neon-cyan);font-family:Orbitron}
+        .title h3{font-size:16px;color:var(--neon-pink);font-family:Orbitron}
 
-
-        /* Decorative Glow Effect */
-
-        .hero::before {
-
-            content: '';
-
-            position: absolute;
-
-            top: 10%;
-
-            left: 50%;
-
-            width: 300px;
-
-            height: 300px;
-
-            background: var(--neon-cyan);
-
-            filter: blur(150px);
-
-            opacity: 0.15;
-
-            z-index: -1;
-
-            transform: translateX(-50%);
-
+        .gradient-text{
+            background:linear-gradient(to right,var(--neon-cyan),var(--neon-pink),var(--gold));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent
         }
 
+        .highlight{
+            margin:22px auto;
+            padding:26px;
+            border-radius:26px;
+            background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(255,47,166,.15));
+            backdrop-filter:blur(10px);
+            border:2px solid rgba(255,47,166,.5);
+            text-align:center;
+        }
+        .highlight h4{font-family:Orbitron;color:var(--neon-pink);font-size:15px}
+        .highlight p{font-size:20px;font-weight:900;margin-top:8px}
 
+        .prizes{display:flex;gap:14px;margin:10px auto}
+        .prize{flex:1;background:var(--glass);padding:18px;border-radius:18px;text-align:center}
+        .prize.gold h4{color:var(--gold)}
 
-        .title {
+        .fee{
+            max-width:260px;margin:10px auto 18px;
+            padding:10px;border-radius:14px;
+            border:2px solid var(--neon-cyan);text-align:center
+        }
+        .fee span{font-size:20px;color:var(--neon-cyan);font-weight:800}
 
-            text-align: center;
-
-            margin-top: 20px
-
+        .icons{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+        .icon{
+            padding:16px 10px;border-radius:18px;
+            background:var(--glass);text-align:center;
+            font-size:11px;color:#fff;text-decoration:none
         }
 
+        section{padding:45px 18px}
+        section h2{font-family:Orbitron;color:var(--neon-cyan);margin-bottom:12px}
 
+        footer{text-align:center;padding:40px 20px 100px;font-size:12px;opacity:.5}
 
-        .title h1 {
-
-            font-size: 11px;
-
-            letter-spacing: 2px;
-
-            opacity: .7;
-
-            font-family: Orbitron
-
+        .sticky-register{
+            position:fixed;bottom:15px;left:50%;
+            transform:translateX(-50%);
+            width:92%;max-width:420px;
+            padding:16px;border-radius:40px;
+            background:linear-gradient(135deg,#00f5ff,#00ff99);
+            color:#003c40;text-align:center;
+            font-size:18px;font-weight:900;
+            text-decoration:none;z-index:999
         }
-
-
-
-        .title h2 {
-
-            font-size: 26px;
-
-            color: var(--neon-cyan);
-
-            font-family: Orbitron;
-
-            text-shadow: 0 0 10px rgba(0, 245, 255, 0.5);
-
-        }
-
-
-
-        .title h3 {
-
-            font-size: 16px;
-
-            color: var(--neon-pink);
-
-            font-family: Orbitron
-
-        }
-
-
-
-        .gradient-text {
-
-            background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold));
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent
-
-        }
-
-
-
-        .highlight {
-
-            margin: 22px auto;
-
-            padding: 26px;
-
-            border-radius: 26px;
-
-            background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
-
-            backdrop-filter: blur(10px);
-
-            border: 2px solid rgba(255, 47, 166, 0.5);
-
-            text-align: center;
-
-            box-shadow: 0 0 20px rgba(255, 47, 166, 0.3), inset 0 0 15px rgba(0, 245, 255, 0.2);
-
-        }
-
-
-
-        .highlight h4 {
-
-            font-family: Orbitron;
-
-            color: var(--neon-pink);
-
-            font-size: 15px
-
-        }
-
-
-
-        .highlight p {
-
-            font-size: 20px;
-
-            font-weight: 900;
-
-            margin-top: 8px;
-
-            text-shadow: 0 0 5px #fff;
-
-        }
-
-
-
-        .prizes {
-
-            display: flex;
-
-            gap: 14px;
-
-            margin: 10px auto
-
-        }
-
-
-
-        .prize {
-
-            flex: 1;
-
-            background: var(--glass);
-
-            padding: 18px;
-
-            border-radius: 18px;
-
-            text-align: center;
-
-            border: 1px solid rgba(255, 255, 255, 0.1);
-
-        }
-
-
-
-        .prize h4 {
-
-            font-size: 22px;
-
-            font-weight: 900
-
-        }
-
-
-
-        .prize.gold {
-
-            border: 1px solid var(--gold);
-
-            background: rgba(255, 215, 0, 0.05);
-
-        }
-
-
-
-        .prize.gold h4 {
-
-            color: var(--gold);
-
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-
-        }
-
-
-
-        .fee {
-
-            max-width: 260px;
-
-            margin: 10px auto 18px;
-
-            padding: 10px;
-
-            border-radius: 14px;
-
-            border: 2px solid var(--neon-cyan);
-
-            text-align: center;
-
-            background: rgba(0, 245, 255, 0.05);
-
-        }
-
-
-
-        .fee span {
-
-            font-size: 20px;
-
-            color: var(--neon-cyan);
-
-            font-weight: 800
-
-        }
-
-
-
-        .icons {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 14px
-
-        }
-
-
-
-        .icon {
-
-            padding: 16px 10px;
-
-            border-radius: 18px;
-
-            background: var(--glass);
-
-            text-align: center;
-
-            font-size: 11px;
-
-            color: #fff;
-
-            text-decoration: none;
-
-            border: 1px solid rgba(255, 255, 255, 0.05);
-
-            transition: 0.3s;
-
-        }
-
-
-
-        .icon:active {
-
-            transform: scale(0.95);
-
-            background: rgba(255, 255, 255, 0.15);
-
-        }
-
-
-
-        section {
-
-            padding: 45px 18px;
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-
-        }
-
-
-
-        section h2 {
-
-            font-family: Orbitron;
-
-            color: var(--neon-cyan);
-
-            margin-bottom: 12px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-        }
-
-
-
-        footer {
-
-            text-align: center;
-
-            padding: 40px 20px 100px;
-
-            font-size: 12px;
-
-            opacity: .5
-
-        }
-
-
-
-        .sticky-register {
-
-            position: fixed;
-
-            bottom: 15px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: 92%;
-
-            max-width: 420px;
-
-            padding: 16px;
-
-            border-radius: 40px;
-
-            background: linear-gradient(135deg, #00f5ff, #00ff99);
-
-            color: #003c40;
-
-            text-align: center;
-
-            font-size: 18px;
-
-            font-weight: 900;
-
-            text-decoration: none;
-
-            z-index: 999;
-
-            box-shadow: 0 10px 25px rgba(0, 245, 255, 0.4);
-
-        }
-
     </style>
-
 </head>
-
-
 
 <body>
 
-    <div class="android">
-
-
-
-        <div class="hero">
-
-
-
-            <div class="title">
-
-                <h1>SANTIPUR YOUTH ASSOCIATION</h1>
-
-                <h2>BADMINTON</h2>
-
-                <h2 class="gradient-text">TOURNAMENT</h2>
-
-                <h3>SEASON 4</h3>
-
-            </div>
-
-
-
-            <div class="highlight">
-
-                <h4>NEXT MATCH</h4>
-
-                <p id="liveMatch">Loading...</p>
-
-            </div>
-
-
-
-            <div class="highlight">
-
-                <h4>LIVE SCORE</h4>
-
-                <p id="liveScore">0 - 0</p>
-
-                <small id="liveStatus">Waiting...</small>
-
-            </div>
-
-
-
-            <div class="prizes">
-
-                <div class="prize gold">
-
-                    <small>1ST PRIZE</small>
-
-                    <h4>₹15,001</h4>
-
-                </div>
-
-                <div class="prize">
-
-                    <small>2ND PRIZE</small>
-
-                    <h4>₹10,001</h4>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="fee">
-
-                JOINING FEE<br><span>₹401 ONLY</span>
-
-            </div>
-
-
-
-            <div class="icons">
-
-                <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
-
-                <a href="updates.html" class="icon">🔔<br>UPDATES</a>
-
-                <a href="location.html" class="icon">📍<br>VENUE</a>
-
-            </div>
-
-
-
-        </div>
-
-
-
-        <section>
-
-            <h2>About Tournament</h2>
-
-            <p>Santipur Youth Association Badminton Tournament is organised every year to promote sportsmanship and
-
-                youth talent.</p>
-
-        </section>
-
-
-
-        <section class="rules">
-
-            <h2>🏸 খেলৰ নিয়মাৱলী</h2>
-
-            <ol style="padding-left: 20px; line-height: 1.8; opacity: 0.9;">
-
-                <li>খেল সমূহ তাৰিখে ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
-
-                <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
-
-                <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
-
-                <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
-
-                <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
-
-                <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
-
-                <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
-
-                <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
-
-            </ol>
-
-        </section>
-
-
-
-        <section class="schedule">
-
-            <h2>Match Schedule</h2>
-
-            <div style="background: var(--glass); padding: 10px; border-radius: 8px; margin-bottom: 8px;">17 Jan 2026 –
-
-                Opening Matches</div>
-
-            <div style="background: var(--glass); padding: 10px; border-radius: 8px;">18 Jan 2026 – Semi Final & Final
-
-            </div>
-
-        </section>
-
-
-
-        <section>
-
-            <h2>Sponsors</h2>
-
-            <div class="sponsors" style="display: flex; flex-wrap: wrap; gap: 10px;">
-
-                <div style="background: var(--glass); padding: 8px 15px; border-radius: 20px; font-size: 14px;">Local
-
-                    Sponsor 1</div>
-
-                <div style="background: var(--glass); padding: 8px 15px; border-radius: 20px; font-size: 14px;">Local
-
-                    Sponsor 2</div>
-
-                <div style="background: var(--glass); padding: 8px 15px; border-radius: 20px; font-size: 14px;">Local
-
-                    Sponsor 3</div>
-
-            </div>
-
-        </section>
-
-
-
-        <section>
-
-            <h2>📢 Live Notice</h2>
-
-            <p id="liveNotice" style="color: var(--neon-pink);">No notice</p>
-
-        </section>
-
-
-
-        <footer>© 2026 Santipur Youth Association</footer>
-
-    </div>
-
-
-
-    <a class="sticky-register"
-
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdvdH39ynAJms2HWMeqHXalwVdQF9fRRSJlkrhI5wtdke5gGg/viewform">
-
-        ▶ REGISTER NOW
-
-    </a>
-
+<div class="android">
+<div class="hero">
+
+<div class="title">
+<h1>SANTIPUR YOUTH ASSOCIATION</h1>
+<h2>BADMINTON</h2>
+<h2 class="gradient-text">TOURNAMENT</h2>
+<h3>SEASON 4</h3>
+</div>
+
+<div class="highlight">
+<h4>NEXT MATCH</h4>
+<p id="liveMatch">Loading...</p>
+</div>
+
+<div class="highlight">
+<h4>LIVE SCORE</h4>
+<p id="liveScore">0 - 0</p>
+<small id="liveStatus">Waiting...</small>
+</div>
+
+<div class="prizes">
+<div class="prize gold"><small>1ST PRIZE</small><h4>₹15,001</h4></div>
+<div class="prize"><small>2ND PRIZE</small><h4>₹10,001</h4></div>
+</div>
+
+<div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
+
+<div class="icons">
+<a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
+<a href="updates.html" class="icon">🔔<br>UPDATES</a>
+<a href="location.html" class="icon">📍<br>VENUE</a>
+</div>
+
+</div>
+
+<section>
+<h2>📢 Live Notice</h2>
+<p id="liveNotice">No notice</p>
+</section>
+
+<footer>© 2026 Santipur Youth Association</footer>
+</div>
+
+<a class="sticky-register"
+href="https://docs.google.com/forms/d/e/1FAIpQLSdvdH39ynAJms2HWMeqHXalwVdQF9fRRSJlkrhI5wtdke5gGg/viewform">
+▶ REGISTER NOW
+</a>
+
+<!-- 🔥 Firebase CDN (REQUIRED) -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<!-- 🔥 Your scripts -->
 <script src="firebase.js"></script>
 <script src="app.js"></script>
 
-
-
-
 </body>
-
-
-
 </html>
-
-
