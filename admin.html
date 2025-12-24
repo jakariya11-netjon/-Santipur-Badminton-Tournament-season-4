@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Admin Panel</title>
 
 <style>
@@ -53,7 +53,6 @@ if(pass !== "admin123"){
 <input id="liveTeam2" placeholder="Live Team B">
 <input id="liveScore1" type="number" placeholder="Score A">
 <input id="liveScore2" type="number" placeholder="Score B">
-
 <button onclick="updateLiveMatch()">UPDATE LIVE SCORE</button>
 
 <hr>
@@ -62,7 +61,6 @@ if(pass !== "admin123"){
 <h3>Next Match</h3>
 <input id="nextTeam1" placeholder="Next Match Team A">
 <input id="nextTeam2" placeholder="Next Match Team B">
-
 <button onclick="updateNextMatch()">UPDATE NEXT MATCH</button>
 
 <hr>
@@ -81,30 +79,21 @@ if(pass !== "admin123"){
 <!-- 🔧 JAVASCRIPT -->
 <script>
 function updateLiveMatch(){
-  localStorage.setItem("liveTeam1",
-    document.getElementById("liveTeam1").value);
-  localStorage.setItem("liveTeam2",
-    document.getElementById("liveTeam2").value);
-  localStorage.setItem("liveScore1",
-    document.getElementById("liveScore1").value);
-  localStorage.setItem("liveScore2",
-    document.getElementById("liveScore2").value);
-
+  localStorage.setItem("liveTeam1", document.getElementById("liveTeam1").value);
+  localStorage.setItem("liveTeam2", document.getElementById("liveTeam2").value);
+  localStorage.setItem("liveScore1", document.getElementById("liveScore1").value);
+  localStorage.setItem("liveScore2", document.getElementById("liveScore2").value);
   alert("Live Match Updated");
 }
 
 function updateNextMatch(){
-  localStorage.setItem("nextTeam1",
-    document.getElementById("nextTeam1").value);
-  localStorage.setItem("nextTeam2",
-    document.getElementById("nextTeam2").value);
-
+  localStorage.setItem("nextTeam1", document.getElementById("nextTeam1").value);
+  localStorage.setItem("nextTeam2", document.getElementById("nextTeam2").value);
   alert("Next Match Updated");
 }
 
 function updateNotice(){
-  localStorage.setItem("liveNotice",
-    document.getElementById("notice").value);
+  localStorage.setItem("liveNotice", document.getElementById("notice").value);
   alert("Notice Updated");
 }
 
