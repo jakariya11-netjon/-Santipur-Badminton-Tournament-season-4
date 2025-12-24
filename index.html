@@ -1,230 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Santipur Youth Association Badminton Tournament</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Santipur Youth Association Badminton Tournament</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
 
-<style>
-:root{
-  --neon-cyan:#00f5ff;
-  --neon-pink:#ff2fa6;
-  --gold:#ffd700;
-  --glass:rgba(255,255,255,0.08);
-}
-*{margin:0;padding:0;box-sizing:border-box}
+    <style>
+        :root {
+            --neon-cyan: #00f5ff;
+            --neon-pink: #ff2fa6;
+            --gold: #ffd700;
+            --dark: #02090c;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
 
-body{
-  min-height:100vh;
-  background:#02090c;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:'Poppins',sans-serif;
-  overflow:hidden;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-.phone{
-  width:360px;
-  min-height:720px;
-  border-radius:40px;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.98)),
-    url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
-  background-size:cover;
-  background-position:center;
-  padding:22px;
-  color:white;
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:0 0 100px rgba(0,0,0,.6);
-}
+        body {
+            background: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
 
-.title{text-align:center;margin-top:15px}
-.title h1{font-size:11px;letter-spacing:2px;opacity:.7;font-family:'Orbitron'}
-.title h2{font-size:22px;color:var(--neon-cyan);font-family:'Orbitron'}
+        /* ANDROID */
+        .android {
+            max-width: 430px;
+            margin: auto;
+            background: var(--dark);
+        }
 
-/* --- NEW STYLE FOR COLORFUL TEXT --- */
-.full-color-text {
-  /* Create a gradient background using theme colors */
-  background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold), var(--neon-cyan));
-  background-size: 200% auto;
-  /* Clip the background to the text shape */
-  -webkit-background-clip: text;
-  background-clip: text;
-  /* Make the actual text color transparent so background shows through */
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline-block; /* Ensures clip works correctly */
-}
-/* ----------------------------------- */
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 20px;
+            background:
+                linear-gradient(to bottom, rgba(0, 0, 0, .88), rgba(0, 0, 0, .98)),
+                url("https://images.unsplash.com/photo-1521412644187-c49fa049e84d");
+            background-size: cover;
+            background-position: center;
+        }
 
-.title h3{font-size:16px;color:var(--neon-pink);font-family:'Orbitron'}
+        /* TITLE */
+        .title {
+            text-align: center;
+            margin-top: 20px
+        }
 
-.prizes{display:flex;gap:10px;margin-top:18px}
+        .title h1 {
+            font-size: 11px;
+            letter-spacing: 2px;
+            opacity: .7;
+            font-family: 'Orbitron'
+        }
 
-.prize{
-  flex:1;
-  padding:15px 5px;
-  border-radius:14px;
-  background:var(--glass);
-  text-align:center;
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
-  gap:5px;
-}
+        .title h2 {
+            font-size: 26px;
+            color: var(--neon-cyan);
+            font-family: 'Orbitron'
+        }
 
-.prize-label{
-    font-size: 10px;
-    font-weight: 600;
-    opacity: 0.9;
-}
+        .title h3 {
+            font-size: 16px;
+            color: var(--neon-pink);
+            font-family: 'Orbitron'
+        }
 
-.prize-amount{
-    font-size: 16px;
-    font-weight: 800;
-}
+        .gradient-text {
+            background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-.first .prize-amount{color:var(--gold);}
-.second .prize-amount{color:white;}
+        /* HIGHLIGHT (5×4) */
+        .highlight {
+            margin: 22px auto 28px;
+            padding: 26px;
+            border-radius: 26px;
+            background: linear-gradient(135deg, rgba(0, 245, 255, .4), rgba(255, 47, 166, .4));
+            border: 4px solid var(--neon-pink);
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 47, 166, .8), 0 0 55px rgba(0, 245, 255, .9);
+        }
 
-.fee{
-  margin:16px auto;
-  width:90%;
-  padding:12px;
-  border-radius:18px;
-  border:2px solid var(--neon-cyan);
-  text-align:center;
-}
-.fee span{font-size:22px;color:var(--neon-cyan)}
+        .highlight h4 {
+            font-family: 'Orbitron';
+            color: var(--neon-pink);
+            font-size: 15px;
+        }
 
-.row{
-  display:flex;
-  gap:10px;
-  margin-top:14px;
-}
+        .highlight p {
+            font-size: 18px;
+            font-weight: 900;
+            margin-top: 8px;
+        }
 
-.date-box, .contact-box{
-  flex:1;
-  padding:12px;
-  border-radius:16px;
-  background:linear-gradient(135deg,rgba(255,47,166,.15),rgba(0,245,255,.12));
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-decoration: none;
-}
+        /* PRIZES */
+        .prizes {
+            display: flex;
+            gap: 14px;
+            margin: 10px auto 14px;
+        }
 
-.date-box h4{
-  font-size:12px;
-  letter-spacing:1px;
-  color:var(--neon-pink);
-  font-family:'Orbitron';
-}
-.date-box p{
-  margin-top:4px;
-  font-size:15px;
-  font-weight:800;
-  color:var(--gold);
-}
+        .prize {
+            flex: 1;
+            background: var(--glass);
+            padding: 18px;
+            border-radius: 18px;
+            text-align: center;
+        }
 
-.contact-box h4{
-  font-size:14px;
-  color:var(--neon-cyan);
-  font-family:'Orbitron';
-  margin:0;
-}
+        .prize small {
+            font-size: 11px;
+            opacity: .8
+        }
 
-.register{
-  margin:18px auto;
-  width:90%;
-  padding:15px;
-  border-radius:40px;
-  background:linear-gradient(135deg,#00f5ff,#00ff99);
-  color:#003c40;
-  text-align:center;
-  font-size:18px;
-  font-weight:900;
-  display:block;
-  text-decoration: none;
-}
+        .prize h4 {
+            font-size: 22px;
+            font-weight: 900
+        }
 
-.icons{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:16px;
-}
-.icon{
-  padding:10px 5px;
-  border-radius:15px;
-  background:var(--glass);
-  text-align:center;
-  font-size:10px;
-  color:white;
-  text-decoration:none;
-}
+        .prize.gold h4 {
+            color: var(--gold)
+        }
 
-.footer{
-  margin-top:14px;
-  text-align:center;
-  font-size:10px;
-  opacity:.4;
-}
-</style>
+        /* JOINING FEE — NOW UNDER PRIZE */
+        .fee {
+            max-width: 260px;
+            margin: 10px auto 18px;
+            padding: 10px;
+            border-radius: 14px;
+            border: 2px solid var(--neon-cyan);
+            text-align: center;
+        }
+
+        .fee span {
+            font-size: 20px;
+            color: var(--neon-cyan);
+            font-weight: 800;
+        }
+
+        /* QUICK LINKS (UNDER JOIN FEE) */
+        .icons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 0 0 26px;
+        }
+
+        .icon {
+            padding: 16px 10px;
+            border-radius: 18px;
+            background: var(--glass);
+            text-align: center;
+            font-size: 11px;
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .icon:hover {
+            background: linear-gradient(135deg, #00f5ff, #ff2fa6);
+            color: #000;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 45px 18px
+        }
+
+        section h2 {
+            font-family: 'Orbitron';
+            color: var(--neon-cyan);
+            margin-bottom: 12px;
+        }
+
+        section p,
+        section li {
+            line-height: 1.7;
+            opacity: .9
+        }
+
+        /* RULES */
+        .rules ol {
+            padding-left: 18px
+        }
+
+        .rules li {
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        /* SCHEDULE */
+        .schedule div {
+            background: var(--glass);
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .gallery div {
+            height: 120px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #333, #111);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .6;
+        }
+
+        /* SPONSORS */
+        .sponsors {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .sponsors div {
+            padding: 12px 18px;
+            background: var(--glass);
+            border-radius: 12px;
+        }
+
+        /* STICKY REGISTER */
+        .sticky-register {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 420px;
+            padding: 16px;
+            border-radius: 40px;
+            background: linear-gradient(135deg, #00f5ff, #00ff99);
+            color: #003c40;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 900;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 0 25px rgba(0, 255, 200, .6);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 20px 100px;
+            font-size: 12px;
+            opacity: .5;
+        }
+    </style>
 </head>
 
 <body>
-<div class="phone">
+    <div class="android">
 
-  <div class="title">
-    <h1>SANTIPUR YOUTH ASSOCIATION</h1>
-    <h2>BADMINTON</h2>
-    <h2 class="full-color-text" style="margin-top:-5px">TOURNAMENT</h2>
-    <h3>SEASON 4</h3>
-  </div>
+        <div class="hero">
 
-  <div class="prizes">
-    <div class="prize first">
-        <span class="prize-label">1ST PRIZE</span>
-        <span class="prize-amount">₹15,000</span>
+            <div class="title">
+                <h1>SANTIPUR YOUTH ASSOCIATION</h1>
+                <h2>BADMINTON</h2>
+                <h2 class="gradient-text">TOURNAMENT</h2>
+                <h3>SEASON 4</h3>
+            </div>
+
+            <!-- HIGHLIGHT -->
+            <div class="highlight">
+                <h4>NEXT MATCH</h4>
+                <p>Winner 🆚 Runner-up (Final)</p>
+            </div>
+
+            <!-- PRIZE -->
+            <div class="prizes">
+                <div class="prize gold">
+                    <small>1ST PRIZE</small>
+                    <h4>₹15,001</h4>
+                </div>
+                <div class="prize">
+                    <small>2ND PRIZE</small>
+                    <h4>₹10,001</h4>
+                </div>
+            </div>
+
+            <!-- JOINING FEE (MOVED HERE) -->
+            <div class="fee">
+                JOINING FEE<br><span>₹401 ONLY</span>
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="icons">
+                <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
+                <a href="updates.html" class="icon">🔔<br>UPDATES</a>
+                <a href="location.html" class="icon">📍<br>VENUE</a>
+            </div>
+
+        </div>
+
+        <!-- ABOUT -->
+        <section>
+            <h2>About Tournament</h2>
+            <p>Santipur Youth Association Badminton Tournament is organised every year to promote sportsmanship and
+                youth talent.</p>
+        </section>
+
+        <!-- RULES -->
+        <section class="rules">
+            <h2>🏸 খেলৰ নিয়মাৱলী</h2>
+            <ol>
+                <li>খেল সমূহ তাৰিখে ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
+                <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
+                <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
+                <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
+                <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
+                <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
+                <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
+                <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
+            </ol>
+        </section>
+
+        <!-- SCHEDULE -->
+        <section class="schedule">
+            <h2>Match Schedule</h2>
+            <div>17 Jan 2026 – Opening Matches</div>
+            <div>18 Jan 2026 – Semi Final & Final</div>
+        </section>
+
+
+
+        <!-- SPONSORS -->
+        <section>
+            <h2>Sponsors</h2>
+            <div class="sponsors">
+                <div>Local Sponsor 1</div>
+                <div>Local Sponsor 2</div>
+                <div>Local Sponsor 3</div>
+            </div>
+        </section>
+
+        <footer>© 2026 Santipur Youth Association</footer>
+
     </div>
-    <div class="prize second">
-        <span class="prize-label">2ND PRIZE</span>
-        <span class="prize-amount">₹10,000</span>
-    </div>
-  </div>
 
-  <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
-
-  <div class="row">
-    <div class="date-box">
-      <h4>EVENT DATE</h4>
-      <p>JAN 17–18, 2026</p>
-    </div>
-
-    <a href="contact.html" class="contact-box">
-      <h4>CONTACT 📞</h4>
+    <a class="sticky-register"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdvdH39ynAJms2HWMeqHXalwVdQF9fRRSJlkrhI5wtdke5gGg/viewform?usp=publish-editor">
+        ▶ REGISTER NOW
     </a>
-  </div>
 
-  <a href="register.html" class="register">▶ REGISTER NOW</a>
-
-  <div class="icons">
-    <a href="committee.html" class="icon">👥<br>COMMITTEE</a>
-    <a href="updates.html" class="icon">🔔<br>UPDATES</a>
-    <a href="location.html" class="icon">📍<br>VENUE</a>
-    <a href="sponsors.html" class="icon">🤝<br>SPONSORS</a>
-  </div>
-
-  <div class="footer">© 2026 SANTIPUR YOUTH ASSOCIATION</div>
-
-</div>
 </body>
-</html>
 
+</html>
