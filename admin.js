@@ -1,4 +1,6 @@
-// admin.js (Admin update)
+// admin.js (Admin update logic)
+
+// 🔴 Update live score
 function updateScore() {
     firebase.database().ref("currentMatch").set({
         teamA: document.getElementById("a").value,
@@ -9,8 +11,22 @@ function updateScore() {
     });
 }
 
+// 🔵 Update live notice
 function updateNotice() {
     firebase.database().ref("notice").set(
         document.getElementById("notice").value
     );
+}
+
+// 🟡 Update next match
+function updateNextMatch() {
+    firebase.database().ref("nextMatch").set({
+        teamA: document.getElementById("nmA").value,
+        teamB: document.getElementById("nmB").value
+    });
+}
+
+// 🏁 Finish match
+function finishMatch() {
+    firebase.database().ref("currentMatch/status").set("Finished");
 }
