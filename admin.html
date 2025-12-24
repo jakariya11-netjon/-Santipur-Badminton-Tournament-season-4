@@ -1,29 +1,100 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <title>Admin Panel</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #02090c;
+            color: white;
+            padding: 20px;
+        }
+
+        h2, h3 {
+            color: #00f5ff;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #00f5ff, #ff2fa6);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        hr {
+            margin: 25px 0;
+            border: 1px solid #333;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h2>Admin – Live Score Update</h2>
+<!-- 🔐 ADMIN PASSWORD -->
+<script>
+    const pass = prompt("Enter Admin Password");
+    if (pass !== "admin123") {
+        alert("Wrong password");
+        location.href = "/";
+    }
+</script>
 
-    <input id="a" placeholder="Team A" /><br><br>
-    <input id="b" placeholder="Team B" /><br><br>
-    <input id="sa" type="number" placeholder="Score A" /><br><br>
-    <input id="sb" type="number" placeholder="Score B" /><br><br>
+<h2>🏸 Admin – Live Score Panel</h2>
 
-    <button onclick="updateScore()">UPDATE SCORE</button>
+<!-- 🔴 LIVE SCORE UPDATE -->
+<h3>Live Match Score</h3>
 
-    <hr>
+<input id="a" placeholder="Team A / Player A" />
+<input id="b" placeholder="Team B / Player B" />
+<input id="sa" type="number" placeholder="Score A" />
+<input id="sb" type="number" placeholder="Score B" />
 
-    <textarea id="notice" placeholder="Notice"></textarea><br><br>
-    <button onclick="updateNotice()">UPDATE NOTICE</button>
+<button onclick="updateScore()">UPDATE SCORE</button>
 
-    <script src="firebase.js"></script>
-    <script src="admin.js"></script>
+<hr>
+
+<!-- 🟡 NEXT MATCH CONTROL -->
+<h3>Next Match</h3>
+
+<input id="nmA" placeholder="Next Match Team A" />
+<input id="nmB" placeholder="Next Match Team B" />
+
+<button onclick="updateNextMatch()">UPDATE NEXT MATCH</button>
+
+<hr>
+
+<!-- 🔵 NOTICE CONTROL -->
+<h3>Live Notice</h3>
+
+<textarea id="notice" placeholder="Type notice here..."></textarea>
+
+<button onclick="updateNotice()">UPDATE NOTICE</button>
+
+<hr>
+
+<!-- 🏁 FINISH MATCH -->
+<h3>Match Control</h3>
+
+<button onclick="finishMatch()">FINISH MATCH</button>
+
+<!-- 🔥 FIREBASE FILES -->
+<script src="firebase.js"></script>
+<script src="admin.js"></script>
+
 </body>
-
 </html>
