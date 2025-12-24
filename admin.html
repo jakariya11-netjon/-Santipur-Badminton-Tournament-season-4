@@ -1,92 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Admin Panel</title>
+<meta charset="UTF-8" />
+<title>Admin Panel</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #02090c;
-            color: white;
-            padding: 20px;
-        }
-        h2, h3 {
-            color: #00f5ff;
-        }
-        input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin: 6px 0;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
-        textarea { height: 80px; }
-        button {
-            background: linear-gradient(135deg, #00f5ff, #ff2fa6);
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        hr {
-            margin: 25px 0;
-            border: 1px solid #333;
-        }
-    </style>
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#02090c;
+  color:white;
+  padding:20px;
+}
+h2,h3{color:#00f5ff}
+input,textarea,button{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border-radius:8px;
+  border:none;
+  outline:none;
+}
+textarea{height:80px}
+button{
+  background:linear-gradient(135deg,#00f5ff,#ff2fa6);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+}
+hr{
+  margin:25px 0;
+  border:1px solid #333;
+}
+</style>
 </head>
 
 <body>
 
 <!-- 🔐 ADMIN PASSWORD -->
 <script>
-    const pass = prompt("Enter Admin Password");
-    if (pass !== "admin123") {
-        alert("Wrong password");
-        location.href = "/";
-    }
+const pass = prompt("Enter Admin Password");
+if(pass !== "admin123"){
+  alert("Wrong password");
+  location.href = "/";
+}
 </script>
 
 <h2>🏸 Admin – Live Score Panel</h2>
 
+<!-- 🔴 LIVE MATCH -->
 <h3>Live Match Score</h3>
-<input id="a" placeholder="Team A / Player A">
-<input id="b" placeholder="Team B / Player B">
-<input id="sa" type="number" placeholder="Score A">
-<input id="sb" type="number" placeholder="Score B">
-<button onclick="updateScore()">UPDATE SCORE</button>
-
-<hr>
-
 <input id="liveTeam1" placeholder="Live Team A">
 <input id="liveTeam2" placeholder="Live Team B">
-<input id="liveScore1" placeholder="Score A">
-<input id="liveScore2" placeholder="Score B">
+<input id="liveScore1" type="number" placeholder="Score A">
+<input id="liveScore2" type="number" placeholder="Score B">
 
-<button onclick="updateLiveMatch()">UPDATE SCORE</button>
-
+<button onclick="updateLiveMatch()">UPDATE LIVE SCORE</button>
 
 <hr>
 
+<!-- 🟡 NEXT MATCH -->
+<h3>Next Match</h3>
+<input id="nextTeam1" placeholder="Next Match Team A">
+<input id="nextTeam2" placeholder="Next Match Team B">
+
+<button onclick="updateNextMatch()">UPDATE NEXT MATCH</button>
+
+<hr>
+
+<!-- 🔔 LIVE NOTICE -->
 <h3>Live Notice</h3>
 <textarea id="notice" placeholder="Type notice here..."></textarea>
 <button onclick="updateNotice()">UPDATE NOTICE</button>
 
 <hr>
 
+<!-- ⚠ MATCH CONTROL -->
 <h3>Match Control</h3>
 <button onclick="finishMatch()">FINISH MATCH</button>
 
-<!-- 🔥 Firebase CDN (VERY IMPORTANT) -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<!-- 🔧 JAVASCRIPT -->
+<script>
+function updateLiveMatch(){
+  localStorage.setItem("liveTeam1",
+    document.getElementById("liveTeam1").value);
+  localStorage.setItem("liveTeam2",
+    document.getElementById("liveTeam2").value);
+  localStorage.setItem("liveScore1",
+    document.getElementById("liveScore1").value);
+  localStorage.setItem("liveScore2",
+    document.getElementById("liveScore2").value);
 
-<!-- 🔥 Your Firebase config -->
-<script src="firebase.js"></script>
+  alert("Live Match Updated");
+}
 
-<!-- 🔥 Admin logic -->
-<script src="admin.js"></script>
+function updateNextMatch(){
+  localStorage.setItem("nextTeam1",
+    document.getElementById("nextTeam1").value);
+  localStorage.setItem("nextTeam2",
+    document.getElementById("nextTeam2").value);
+
+  alert("Next Match Updated");
+}
+
+function updateNotice(){
+  localStorage.setItem("liveNotice",
+    document.getElementById("notice").value);
+  alert("Notice Updated");
+}
+
+function finishMatch(){
+  localStorage.removeItem("liveTeam1");
+  localStorage.removeItem("liveTeam2");
+  localStorage.removeItem("liveScore1");
+  localStorage.removeItem("liveScore2");
+  alert("Match Finished");
+}
+</script>
 
 </body>
 </html>
-
