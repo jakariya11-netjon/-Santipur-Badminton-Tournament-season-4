@@ -1,14 +1,13 @@
 // firebase.js
 
 var firebaseConfig = {
-  apiKey: "AIzaSyXXXXXXXX",
+  apiKey: "YOUR_API_KEY",
   authDomain: "badminton-live-score-a4fa8.firebaseapp.com",
   databaseURL: "https://badminton-live-score-a4fa8-default-rtdb.firebaseio.com",
   projectId: "badminton-live-score-a4fa8",
   storageBucket: "badminton-live-score-a4fa8.appspot.com",
-  messagingSenderId: "XXXXXXXX",
-  appId: "XXXXXXXX"
+  messagingSenderId: "XXXXXXX",
+  appId: "XXXXXXX"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
