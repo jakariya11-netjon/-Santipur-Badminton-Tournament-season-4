@@ -26,7 +26,7 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             overflow-x: hidden;
-            text-align: center; /* Centering text globally as per score layout */
+            text-align: center;
         }
 
         @keyframes gradientBG {
@@ -35,7 +35,7 @@
             100% { background-position: 0% 50% }
         }
 
-        .container { max-width: 430px; margin: auto; min-height: 100vh; position: relative; }
+        .container { max-width: 430px; margin: auto; min-height: 100vh; position: relative; padding-bottom: 40px; }
 
         .hero {
             padding: 40px 20px;
@@ -46,41 +46,34 @@
         }
 
         .title h1 { font-size: 12px; letter-spacing: 4px; opacity: 0.8; font-family: 'Orbitron'; margin-bottom: 5px; }
-        .title h2 { font-size: 28px; color: var(--neon-cyan); font-family: 'Orbitron'; line-height: 1.2; }
-        .gradient-text {
-            background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 900;
-        }
+        .title h2 { font-size: 26px; color: var(--neon-cyan); font-family: 'Orbitron'; line-height: 1.2; }
         .title h3 { font-size: 18px; color: var(--neon-pink); font-family: 'Orbitron'; margin-top: 5px; }
 
-        /* Scoring Highlights */
         .highlight {
-            margin: 25px 0;
+            margin: 20px 0;
             padding: 20px;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
         }
 
-        .highlight h4 { font-family: 'Orbitron'; font-size: 12px; color: var(--neon-pink); letter-spacing: 1px; }
-        .highlight p { font-size: 22px; font-weight: 700; margin: 10px 0; }
+        .highlight small { font-family: 'Orbitron'; font-size: 10px; color: var(--neon-pink); letter-spacing: 2px; text-transform: uppercase; }
         
+        #liveTeams { font-family: 'Orbitron'; color: var(--neon-cyan); font-size: 18px; margin-top: 5px; }
         #liveScore { 
-            font-size: 40px; /* Bigger score like your second template */
-            color: #fff; 
-            font-family: Arial, sans-serif;
+            font-size: 45px; 
+            font-weight: 900;
+            margin-top: 10px;
             animation: glow 1.2s infinite alternate; 
         }
 
         @keyframes glow {
             from { text-shadow: 0 0 10px var(--neon-cyan); }
-            to { text-shadow: 0 0 20px var(--neon-pink); }
+            to { text-shadow: 0 0 22px var(--neon-pink); }
         }
 
-        .prizes { display: flex; gap: 15px; margin-bottom: 25px; }
+        .prizes { display: flex; gap: 15px; margin-bottom: 25px; padding: 0 20px; }
         .prize {
             flex: 1;
             background: var(--glass);
@@ -89,10 +82,18 @@
             border: 1px solid var(--glass-border);
         }
         .prize.gold { border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
-        .prize h4 { font-size: 20px; color: var(--gold); font-family: 'Orbitron'; }
-        .prize small { font-size: 10px; opacity: 0.7; letter-spacing: 1px; }
+        .prize h4 { font-size: 18px; color: var(--gold); font-family: 'Orbitron'; }
 
-        .icons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 30px; }
+        .fee {
+            margin: 0 20px 30px;
+            background: var(--neon-pink);
+            padding: 10px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .icons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 20px 30px; }
         .icon {
             background: var(--glass);
             padding: 15px 10px;
@@ -103,18 +104,13 @@
             border: 1px solid var(--glass-border);
         }
 
-        .fee {
-            background: var(--neon-pink);
-            padding: 10px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
         section { padding: 25px 20px; border-bottom: 1px solid var(--glass-border); text-align: left; }
         section h2 { font-family: 'Orbitron'; font-size: 18px; margin-bottom: 15px; color: var(--neon-cyan); }
 
+        #liveNotice { color: var(--neon-pink); font-weight: 600; }
+
+        footer { padding: 40px 20px; opacity: 0.5; font-size: 12px; }
+        
         .sticky-register {
             position: fixed;
             bottom: 20px;
@@ -132,8 +128,6 @@
             width: 80%;
             max-width: 350px;
         }
-
-        footer { padding: 100px 20px 40px; opacity: 0.5; font-size: 12px; }
     </style>
 </head>
 <body>
@@ -142,33 +136,32 @@
     <div class="hero">
         <div class="title">
             <h1>SANTIPUR YOUTH ASSOCIATION</h1>
-            <h2>BADMINTON</h2>
-            <h2 class="gradient-text">TOURNAMENT</h2>
+            <h2>BADMINTON TOURNAMENT</h2>
             <h3>SEASON 4</h3>
         </div>
 
         <div class="highlight">
-            <h4>NEXT MATCH</h4>
-            <p id="nextMatch">Waiting...</p>
+            <small>Next Match</small>
+            <p id="nextMatch" style="font-size: 18px; font-weight: 600; margin-top:5px;">Waiting...</p>
         </div>
 
         <div class="highlight">
-            <h1 id="liveTeams" style="color:#00f5ff; font-size: 18px; font-family: 'Orbitron';">Waiting for toss...</h1>
-            <h2 id="liveScore">0 - 0</h2>
+            <div id="liveTeams">Waiting for toss...</div>
+            <div id="liveScore">0 - 0</div>
         </div>
 
         <div class="prizes">
             <div class="prize gold">
-                <small>1ST PRIZE</small>
+                <small>1st Prize</small>
                 <h4>₹15,001</h4>
             </div>
             <div class="prize">
-                <small>2ND PRIZE</small>
+                <small>2nd Prize</small>
                 <h4>₹10,001</h4>
             </div>
         </div>
 
-        <div class="fee">JOINING FEE: <span>₹401 ONLY</span></div>
+        <div class="fee">JOINING FEE: ₹401 ONLY</div>
 
         <div class="icons">
             <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
@@ -182,55 +175,53 @@
         <p style="opacity: 0.8; font-size: 14px; line-height: 1.6;">Santipur Youth Association Badminton Tournament promotes sportsmanship and youth talent. Join us for Season 4!</p>
     </section>
 
-    <section class="rules">
-        <h2>🏸 খেলৰ নিয়মাৱলী</h2>
-        <ol style="padding-left: 20px; line-height: 1.8; opacity: 0.9;">
-            <li>খেল সমূহ তাৰিখে ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
-            <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
-            <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
-            <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
-            <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
-            <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
-        </ol>
-    </section>
-
     <section>
         <h2>📢 Live Notice</h2>
-        <p id="liveNotice" style="color: var(--neon-pink); font-weight: 600;">No new notices.</p>
+        <p id="liveNotice">No new notices.</p>
     </section>
 
     <footer>© 2026 Santipur Youth Association</footer>
     <a class="sticky-register" href="YOUR_GOOGLE_FORM_LINK">▶ REGISTER NOW</a>
 </div>
 
-<script>
-    // 🔄 Syncing logic using LocalStorage instead of Firebase
-    function syncData() {
-        // 1. Update Live Score & Teams
-        const liveMatch = JSON.parse(localStorage.getItem('liveMatch'));
-        if (liveMatch) {
-            document.getElementById("liveScore").innerText = (liveMatch.s1 || 0) + " - " + (liveMatch.s2 || 0);
-            document.getElementById("liveTeams").innerText = (liveMatch.t1 || "Team 1") + " vs " + (liveMatch.t2 || "Team 2");
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+    // 🔴 PASTE YOUR REAL FIREBASE CONFIG HERE
+    const firebaseConfig = {
+        apiKey: "PASTE_REAL_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+        projectId: "YOUR_PROJECT",
+        storageBucket: "YOUR_PROJECT.appspot.com",
+        messagingSenderId: "XXXX",
+        appId: "XXXX"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const dataRef = ref(db, "/");
+    onValue(dataRef, (snapshot) => {
+        const d = snapshot.val();
+        if (!d) return;
+
+        // Sync Live Match
+        if (d.match) {
+            document.getElementById("liveTeams").innerText = (d.match.t1 || "Team 1") + " vs " + (d.match.t2 || "Team 2");
+            document.getElementById("liveScore").innerText = (d.match.s1 || 0) + " - " + (d.match.s2 || 0);
         }
 
-        // 2. Update Next Match & Notices
-        const generalInfo = JSON.parse(localStorage.getItem('generalInfo'));
-        if (generalInfo) {
-            if (generalInfo.nextT1 && generalInfo.nextT2) {
-                document.getElementById("nextMatch").innerText = generalInfo.nextT1 + " vs " + generalInfo.nextT2;
-            }
-            if (generalInfo.notice) {
-                document.getElementById("liveNotice").innerText = generalInfo.notice;
-            }
+        // Sync Next Match
+        if (d.nextMatch) {
+            document.getElementById("nextMatch").innerText = d.nextMatch.t1 + " vs " + d.nextMatch.t2;
         }
-    }
 
-    // Run when page opens
-    window.onload = syncData;
-
-    // Listen for changes made in the Admin Tab
-    window.addEventListener('storage', () => {
-        syncData();
+        // Sync Notice
+        if (d.notice) {
+            document.getElementById("liveNotice").innerText = d.notice;
+        }
     });
 </script>
 
