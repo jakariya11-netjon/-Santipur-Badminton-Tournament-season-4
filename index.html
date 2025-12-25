@@ -149,7 +149,7 @@
 
         <div class="highlight">
             <h4>NEXT MATCH</h4>
-            <p id="nextMatch">Loading...</p>
+            <p id="nextMatch">Waiting...</p>
         </div>
 
         <div class="highlight">
@@ -186,21 +186,14 @@
     <section class="rules">
         <h2>🏸 খেলৰ নিয়মাৱলী</h2>
         <ol style="padding-left: 20px; line-height: 1.8; opacity: 0.9;">
-    <li>খেল সমূহ তাৰিখে ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
-
-                <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
-
-                <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
-
-                <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
-
-                <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
-
-                <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
-
-                <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
-
-                <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
+            <li>খেল সমূহ তাৰিখে ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
+            <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
+            <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
+            <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
+            <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
+            <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
+            <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
+            <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
         </ol>
     </section>
 
@@ -213,38 +206,38 @@
     <a class="sticky-register" href="YOUR_GOOGLE_FORM_LINK">▶ REGISTER NOW</a>
 </div>
 
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+<script>
+    // 🔄 Function to fetch data from LocalStorage
+    function syncData() {
+        // Load Live Match Data
+        const liveMatch = JSON.parse(localStorage.getItem('liveMatch'));
+        if (liveMatch) {
+            document.getElementById("liveScore").innerText = (liveMatch.s1 || 0) + " - " + (liveMatch.s2 || 0);
+            document.getElementById("liveTeams").innerText = (liveMatch.t1 || "Team 1") + " vs " + (liveMatch.t2 || "Team 2");
+        }
 
-    // REPLACE THIS WITH YOUR FIREBASE CONFIG FROM FIREBASE CONSOLE
-    const firebaseConfig = {
-        apiKey: "AIzaSy...",
-        databaseURL: "https://your-project-id-default-rtdb.firebaseio.com",
-        projectId: "your-project-id",
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
-    // Sync Data Instantly
-    const dbRef = ref(db, '/');
-    onValue(dbRef, (snapshot) => {
-        const data = snapshot.val();
-        if(data) {
-            if(data.live) {
-                document.getElementById("liveScore").innerText = data.live.s1 + " - " + data.live.s2;
-                document.getElementById("liveTeams").innerText = data.live.t1 + " vs " + data.live.t2;
+        // Load Next Match & Notice Data
+        const generalInfo = JSON.parse(localStorage.getItem('generalInfo'));
+        if (generalInfo) {
+            if (generalInfo.nextT1 && generalInfo.nextT2) {
+                document.getElementById("nextMatch").innerText = generalInfo.nextT1 + " vs " + generalInfo.nextT2;
+            } else {
+                document.getElementById("nextMatch").innerText = "TBA";
             }
-            if(data.next) {
-                document.getElementById("nextMatch").innerText = data.next.t1 + " vs " + data.next.t2;
-            }
-            if(data.notice) {
-                document.getElementById("liveNotice").innerText = data.notice;
+            
+            if (generalInfo.notice) {
+                document.getElementById("liveNotice").innerText = generalInfo.notice;
             }
         }
+    }
+
+    // Initial load
+    window.onload = syncData;
+
+    // Listen for updates from the Admin tab
+    window.addEventListener('storage', (e) => {
+        syncData();
     });
 </script>
 </body>
 </html>
-
