@@ -189,15 +189,24 @@
     import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
     // 🔴 PASTE YOUR REAL FIREBASE CONFIG HERE
-    const firebaseConfig = {
-        apiKey: "PASTE_REAL_KEY",
-        authDomain: "YOUR_PROJECT.firebaseapp.com",
-        databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-        projectId: "YOUR_PROJECT",
-        storageBucket: "YOUR_PROJECT.appspot.com",
-        messagingSenderId: "XXXX",
-        appId: "XXXX"
-    };
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD-gMRHVsV-jJOAmEr_3EfYNsJOcYKNl68",
+  authDomain: "sya-badminton-live.firebaseapp.com",
+  databaseURL: "https://sya-badminton-live-default-rtdb.firebaseio.com",
+  projectId: "sya-badminton-live",
+  storageBucket: "sya-badminton-live.firebasestorage.app",
+  messagingSenderId: "230817498618",
+  appId: "1:230817498618:web:751ba3b21fbf5a62d89043"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
@@ -227,3 +236,4 @@
 
 </body>
 </html>
+
