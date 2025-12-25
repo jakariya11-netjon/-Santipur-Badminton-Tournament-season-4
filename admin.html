@@ -25,7 +25,7 @@
     <input id="t2" placeholder="Team 2 Name">
     <input id="s1" type="number" placeholder="Score 1">
     <input id="s2" type="number" placeholder="Score 2">
-    <button onclick="updateLive()">PUSH SCORE</button>
+    <button onclick="updateLive()">SAVE SCORE</button>
 </div>
 
 <div class="card">
@@ -33,38 +33,33 @@
     <input id="nt1" placeholder="Next Team 1">
     <input id="nt2" placeholder="Next Team 2">
     <textarea id="not" placeholder="Notice text..."></textarea>
-    <button onclick="updateGeneral()">PUSH UPDATES</button>
+    <button onclick="updateGeneral()">SAVE UPDATES</button>
 </div>
 
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
-    // USE THE SAME CONFIG HERE
-    const firebaseConfig = {
-        apiKey: "AIzaSy...",
-        databaseURL: "https://your-project-id-default-rtdb.firebaseio.com",
-        projectId: "your-project-id",
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-
+<script>
+    // 🔴 Save Live Match Data to LocalStorage
     window.updateLive = function() {
-        set(ref(db, 'live'), {
+        const liveData = {
             t1: document.getElementById("t1").value,
             t2: document.getElementById("t2").value,
             s1: document.getElementById("s1").value,
             s2: document.getElementById("s2").value
-        }).then(() => alert("Score updated for everyone!"));
+        };
+        
+        localStorage.setItem('liveMatch', JSON.stringify(liveData));
+        alert("Score saved locally!");
     }
 
+    // 🟡 Save Next Match & Notice to LocalStorage
     window.updateGeneral = function() {
-        update(ref(db, '/'), {
-            'next/t1': document.getElementById("nt1").value,
-            'next/t2': document.getElementById("nt2").value,
-            'notice': document.getElementById("not").value
-        }).then(() => alert("General info updated!"));
+        const generalData = {
+            nextT1: document.getElementById("nt1").value,
+            nextT2: document.getElementById("nt2").value,
+            notice: document.getElementById("not").value
+        };
+
+        localStorage.setItem('generalInfo', JSON.stringify(generalData));
+        alert("General info saved locally!");
     }
 </script>
 </body>
