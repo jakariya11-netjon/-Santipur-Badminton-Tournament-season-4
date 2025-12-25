@@ -26,6 +26,7 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             overflow-x: hidden;
+            text-align: center; /* Centering text globally as per score layout */
         }
 
         @keyframes gradientBG {
@@ -42,7 +43,6 @@
                         url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
             background-size: cover;
             background-position: center;
-            text-align: center;
         }
 
         .title h1 { font-size: 12px; letter-spacing: 4px; opacity: 0.8; font-family: 'Orbitron'; margin-bottom: 5px; }
@@ -55,6 +55,7 @@
         }
         .title h3 { font-size: 18px; color: var(--neon-pink); font-family: 'Orbitron'; margin-top: 5px; }
 
+        /* Scoring Highlights */
         .highlight {
             margin: 25px 0;
             padding: 20px;
@@ -66,9 +67,11 @@
 
         .highlight h4 { font-family: 'Orbitron'; font-size: 12px; color: var(--neon-pink); letter-spacing: 1px; }
         .highlight p { font-size: 22px; font-weight: 700; margin: 10px 0; }
+        
         #liveScore { 
-            font-size: 32px; 
-            color: var(--neon-cyan); 
+            font-size: 40px; /* Bigger score like your second template */
+            color: #fff; 
+            font-family: Arial, sans-serif;
             animation: glow 1.2s infinite alternate; 
         }
 
@@ -84,7 +87,6 @@
             padding: 15px;
             border-radius: 15px;
             border: 1px solid var(--glass-border);
-            text-align: center;
         }
         .prize.gold { border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
         .prize h4 { font-size: 20px; color: var(--gold); font-family: 'Orbitron'; }
@@ -98,12 +100,10 @@
             text-decoration: none;
             color: #fff;
             font-size: 11px;
-            text-align: center;
             border: 1px solid var(--glass-border);
         }
 
         .fee {
-            text-align: center;
             background: var(--neon-pink);
             padding: 10px;
             border-radius: 50px;
@@ -112,7 +112,7 @@
             margin-bottom: 30px;
         }
 
-        section { padding: 25px 20px; border-bottom: 1px solid var(--glass-border); }
+        section { padding: 25px 20px; border-bottom: 1px solid var(--glass-border); text-align: left; }
         section h2 { font-family: 'Orbitron'; font-size: 18px; margin-bottom: 15px; color: var(--neon-cyan); }
 
         .sticky-register {
@@ -131,13 +131,13 @@
             z-index: 100;
             width: 80%;
             max-width: 350px;
-            text-align: center;
         }
 
-        footer { text-align: center; padding: 100px 20px 40px; opacity: 0.5; font-size: 12px; }
+        footer { padding: 100px 20px 40px; opacity: 0.5; font-size: 12px; }
     </style>
 </head>
 <body>
+
 <div class="container">
     <div class="hero">
         <div class="title">
@@ -153,9 +153,8 @@
         </div>
 
         <div class="highlight">
-            <h4>LIVE SCORE</h4>
-            <p id="liveScore">0 - 0</p>
-            <small id="liveTeams">Waiting for toss...</small>
+            <h1 id="liveTeams" style="color:#00f5ff; font-size: 18px; font-family: 'Orbitron';">Waiting for toss...</h1>
+            <h2 id="liveScore">0 - 0</h2>
         </div>
 
         <div class="prizes">
@@ -189,11 +188,9 @@
             <li>খেল সমূহ তাৰিখে ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
             <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
             <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
-            <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
             <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
             <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
             <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
-            <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
         </ol>
     </section>
 
@@ -207,37 +204,35 @@
 </div>
 
 <script>
-    // 🔄 Function to fetch data from LocalStorage
+    // 🔄 Syncing logic using LocalStorage instead of Firebase
     function syncData() {
-        // Load Live Match Data
+        // 1. Update Live Score & Teams
         const liveMatch = JSON.parse(localStorage.getItem('liveMatch'));
         if (liveMatch) {
             document.getElementById("liveScore").innerText = (liveMatch.s1 || 0) + " - " + (liveMatch.s2 || 0);
             document.getElementById("liveTeams").innerText = (liveMatch.t1 || "Team 1") + " vs " + (liveMatch.t2 || "Team 2");
         }
 
-        // Load Next Match & Notice Data
+        // 2. Update Next Match & Notices
         const generalInfo = JSON.parse(localStorage.getItem('generalInfo'));
         if (generalInfo) {
             if (generalInfo.nextT1 && generalInfo.nextT2) {
                 document.getElementById("nextMatch").innerText = generalInfo.nextT1 + " vs " + generalInfo.nextT2;
-            } else {
-                document.getElementById("nextMatch").innerText = "TBA";
             }
-            
             if (generalInfo.notice) {
                 document.getElementById("liveNotice").innerText = generalInfo.notice;
             }
         }
     }
 
-    // Initial load
+    // Run when page opens
     window.onload = syncData;
 
-    // Listen for updates from the Admin tab
-    window.addEventListener('storage', (e) => {
+    // Listen for changes made in the Admin Tab
+    window.addEventListener('storage', () => {
         syncData();
     });
 </script>
+
 </body>
 </html>
