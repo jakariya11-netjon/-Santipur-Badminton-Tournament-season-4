@@ -10,35 +10,11 @@ button{background:#00f5ff;font-weight:bold;cursor:pointer}
 </head>
 <body>
 
-<script>
-if(prompt("Admin Password")!=="admin123") location.href="index.html";
-</script>
-
-<h3>Live Match</h3>
-<input id="t1" placeholder="Team 1">
-<input id="t2" placeholder="Team 2">
-<input id="s1" type="number" placeholder="Score 1">
-<input id="s2" type="number" placeholder="Score 2">
-<button id="btnScore">UPDATE SCORE</button>
-
-<hr>
-
-<h3>Next Match</h3>
-<input id="nt1" placeholder="Next Team 1">
-<input id="nt2" placeholder="Next Team 2">
-<button id="btnNext">UPDATE NEXT MATCH</button>
-
-<hr>
-
-<h3>Live Notice</h3>
-<textarea id="notice" placeholder="Notice..."></textarea>
-<button id="btnNotice">UPDATE NOTICE</button>
-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-/* ✅ YOUR REAL CONFIG (already correct) */
+/* ✅ FIREBASE CONFIG (CORRECT) */
 const firebaseConfig = {
   apiKey: "AIzaSyD-gMRHVsV-jJOAmEr_3EfYNsJOcYKNl68",
   authDomain: "sya-badminton-live.firebaseapp.com",
@@ -52,32 +28,45 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-/* 🔥 EVENT LISTENERS (NO onclick) */
+/* 🔥 GET ELEMENTS PROPERLY */
+const t1 = document.getElementById("t1");
+const t2 = document.getElementById("t2");
+const s1 = document.getElementById("s1");
+const s2 = document.getElementById("s2");
+const nt1 = document.getElementById("nt1");
+const nt2 = document.getElementById("nt2");
+const notice = document.getElementById("notice");
 
-document.getElementById("btnScore").addEventListener("click", ()=>{
-  set(ref(db,"match"),{
+/* 🔥 BUTTON EVENTS */
+
+document.getElementById("btnScore").addEventListener("click", () => {
+  set(ref(db, "match"), {
     t1: t1.value,
     t2: t2.value,
     s1: s1.value,
     s2: s2.value
-  }).then(()=>alert("Score Updated"))
-    .catch(e=>alert(e.message));
+  })
+  .then(() => alert("✅ Score Updated"))
+  .catch(e => alert("❌ " + e.message));
 });
 
-document.getElementById("btnNext").addEventListener("click", ()=>{
-  set(ref(db,"nextMatch"),{
+document.getElementById("btnNext").addEventListener("click", () => {
+  set(ref(db, "nextMatch"), {
     t1: nt1.value,
     t2: nt2.value
-  }).then(()=>alert("Next Match Updated"))
-    .catch(e=>alert(e.message));
+  })
+  .then(() => alert("✅ Next Match Updated"))
+  .catch(e => alert("❌ " + e.message));
 });
 
-document.getElementById("btnNotice").addEventListener("click", ()=>{
-  set(ref(db,"notice"), notice.value)
-    .then(()=>alert("Notice Updated"))
-    .catch(e=>alert(e.message));
+document.getElementById("btnNotice").addEventListener("click", () => {
+  set(ref(db, "notice"), notice.value)
+  .then(() => alert("✅ Notice Updated"))
+  .catch(e => alert("❌ " + e.message));
 });
 </script>
 
+
 </body>
 </html>
+
