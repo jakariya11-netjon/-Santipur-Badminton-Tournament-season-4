@@ -1,110 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Admin Panel</title>
-
-<style>
-body{
-  font-family: Arial, sans-serif;
-  background:#02090c;
-  color:white;
-  padding:20px;
-}
-h2,h3{color:#00f5ff}
-input,textarea,button{
-  width:100%;
-  padding:10px;
-  margin:6px 0;
-  border-radius:8px;
-  border:none;
-  outline:none;
-}
-textarea{height:80px}
-button{
-  background:linear-gradient(135deg,#00f5ff,#ff2fa6);
-  color:black;
-  font-weight:bold;
-  cursor:pointer;
-}
-hr{
-  margin:25px 0;
-  border:1px solid #333;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>SYA Admin Panel</title>
+    <style>
+        body { font-family: sans-serif; background:#02090c; color:white; padding:20px; max-width:400px; margin:auto; }
+        .card { background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; margin-bottom:20px; border:1px solid #333; }
+        h2 { color:#00f5ff; }
+        input, textarea, button { width:100%; padding:12px; margin:8px 0; border-radius:8px; border:none; box-sizing: border-box; }
+        button { background:linear-gradient(135deg,#00f5ff,#ff2fa6); font-weight:bold; cursor:pointer; }
+    </style>
 </head>
-
 <body>
 
-<!-- 🔐 ADMIN PASSWORD -->
 <script>
-const pass = prompt("Enter Admin Password");
-if(pass !== "admin123"){
-  alert("Wrong password");
-  location.href = "/";
-}
+    if(prompt("Admin Password") !== "admin123") location.href="index.html";
 </script>
 
-<h2>🏸 Admin – Live Score Panel</h2>
+<h2>🏸 SYA Admin</h2>
 
-<!-- 🔴 LIVE MATCH -->
-<h3>Live Match Score</h3>
-<input id="liveTeam1" placeholder="Live Team A">
-<input id="liveTeam2" placeholder="Live Team B">
-<input id="liveScore1" type="number" placeholder="Score A">
-<input id="liveScore2" type="number" placeholder="Score B">
-<button onclick="updateLiveMatch()">UPDATE LIVE SCORE</button>
+<div class="card">
+    <h3>Update Live Match</h3>
+    <input id="t1" placeholder="Team 1 Name">
+    <input id="t2" placeholder="Team 2 Name">
+    <input id="s1" type="number" placeholder="Score 1">
+    <input id="s2" type="number" placeholder="Score 2">
+    <button onclick="updateLive()">PUSH SCORE</button>
+</div>
 
-<hr>
+<div class="card">
+    <h3>Next Match & Notice</h3>
+    <input id="nt1" placeholder="Next Team 1">
+    <input id="nt2" placeholder="Next Team 2">
+    <textarea id="not" placeholder="Notice text..."></textarea>
+    <button onclick="updateGeneral()">PUSH UPDATES</button>
+</div>
 
-<!-- 🟡 NEXT MATCH -->
-<h3>Next Match</h3>
-<input id="nextTeam1" placeholder="Next Match Team A">
-<input id="nextTeam2" placeholder="Next Match Team B">
-<button onclick="updateNextMatch()">UPDATE NEXT MATCH</button>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-<hr>
+    // USE THE SAME CONFIG HERE
+    const firebaseConfig = {
+        apiKey: "AIzaSy...",
+        databaseURL: "https://your-project-id-default-rtdb.firebaseio.com",
+        projectId: "your-project-id",
+    };
 
-<!-- 🔔 LIVE NOTICE -->
-<h3>Live Notice</h3>
-<textarea id="notice" placeholder="Type notice here..."></textarea>
-<button onclick="updateNotice()">UPDATE NOTICE</button>
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-<hr>
+    window.updateLive = function() {
+        set(ref(db, 'live'), {
+            t1: document.getElementById("t1").value,
+            t2: document.getElementById("t2").value,
+            s1: document.getElementById("s1").value,
+            s2: document.getElementById("s2").value
+        }).then(() => alert("Score updated for everyone!"));
+    }
 
-<!-- ⚠ MATCH CONTROL -->
-<h3>Match Control</h3>
-<button onclick="finishMatch()">FINISH MATCH</button>
-
-<!-- 🔧 JAVASCRIPT -->
-<script>
-function updateLiveMatch(){
-  localStorage.setItem("liveTeam1", document.getElementById("liveTeam1").value);
-  localStorage.setItem("liveTeam2", document.getElementById("liveTeam2").value);
-  localStorage.setItem("liveScore1", document.getElementById("liveScore1").value);
-  localStorage.setItem("liveScore2", document.getElementById("liveScore2").value);
-  alert("Live Match Updated");
-}
-
-function updateNextMatch(){
-  localStorage.setItem("nextTeam1", document.getElementById("nextTeam1").value);
-  localStorage.setItem("nextTeam2", document.getElementById("nextTeam2").value);
-  alert("Next Match Updated");
-}
-
-function updateNotice(){
-  localStorage.setItem("liveNotice", document.getElementById("notice").value);
-  alert("Notice Updated");
-}
-
-function finishMatch(){
-  localStorage.removeItem("liveTeam1");
-  localStorage.removeItem("liveTeam2");
-  localStorage.removeItem("liveScore1");
-  localStorage.removeItem("liveScore2");
-  alert("Match Finished");
-}
+    window.updateGeneral = function() {
+        update(ref(db, '/'), {
+            'next/t1': document.getElementById("nt1").value,
+            'next/t2': document.getElementById("nt2").value,
+            'notice': document.getElementById("not").value
+        }).then(() => alert("General info updated!"));
+    }
 </script>
-
 </body>
 </html>
