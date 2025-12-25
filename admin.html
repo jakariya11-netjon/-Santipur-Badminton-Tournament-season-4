@@ -38,44 +38,42 @@ if(prompt("Admin Password")!=="admin123") location.href="index.html";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-/* 🔴 SAME REAL CONFIG HERE */
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
+/* ✅ CORRECT FIREBASE CONFIG */
 const firebaseConfig = {
   apiKey: "AIzaSyD-gMRHVsV-jJOAmEr_3EfYNsJOcYKNl68",
   authDomain: "sya-badminton-live.firebaseapp.com",
   databaseURL: "https://sya-badminton-live-default-rtdb.firebaseio.com",
   projectId: "sya-badminton-live",
-  storageBucket: "sya-badminton-live.firebasestorage.app",
+  storageBucket: "sya-badminton-live.appspot.com",
   messagingSenderId: "230817498618",
   appId: "1:230817498618:web:751ba3b21fbf5a62d89043"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);s
-
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-window.updateScore = ()=>{
+/* 🔥 FUNCTIONS MUST BE ON window */
+window.updateScore = function(){
   set(ref(db,"match"),{
-    t1:t1.value,t2:t2.value,s1:s1.value,s2:s2.value
-  });
+    t1: t1.value,
+    t2: t2.value,
+    s1: s1.value,
+    s2: s2.value
+  }).then(()=>alert("Score Updated"));
 };
 
-window.updateNext = ()=>{
-  set(ref(db,"nextMatch"),{t1:nt1.value,t2:nt2.value});
+window.updateNext = function(){
+  set(ref(db,"nextMatch"),{
+    t1: nt1.value,
+    t2: nt2.value
+  }).then(()=>alert("Next Match Updated"));
 };
 
-window.updateNotice = ()=>{
-  set(ref(db,"notice"), notice.value);
+window.updateNotice = function(){
+  set(ref(db,"notice"), notice.value)
+  .then(()=>alert("Notice Updated"));
 };
 </script>
 
 </body>
 </html>
-
