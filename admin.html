@@ -1,20 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>SYA Admin</title>
+<meta charset="UTF-8">
+<title>SYA Live Match</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body{background:#02090c;color:white;font-family:Arial;max-width:400px;margin:auto}
-input,textarea,button{width:100%;padding:12px;margin:8px 0}
-button{background:#00f5ff;font-weight:bold;cursor:pointer}
+body{
+  background:#02090c;
+  color:white;
+  font-family:Arial;
+  text-align:center;
+  padding:20px
+}
+.card{
+  border:1px solid #00f5ff;
+  border-radius:10px;
+  padding:15px;
+  margin:15px 0
+}
+h2{color:#00f5ff}
+.notice{
+  color:#ffd700;
+  font-weight:bold
+}
 </style>
 </head>
 <body>
 
+<h2>🏸 Santipur Youth Association</h2>
+
+<div class="card">
+  <h3>LIVE MATCH</h3>
+  <p id="liveMatch">Waiting...</p>
+</div>
+
+<div class="card">
+  <h3>NEXT MATCH</h3>
+  <p id="nextMatch">Waiting...</p>
+</div>
+
+<div class="card notice" id="noticeBox">
+  No Notice
+</div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-/* ✅ FIREBASE CONFIG (CORRECT) */
 const firebaseConfig = {
   apiKey: "AIzaSyD-gMRHVsV-jJOAmEr_3EfYNsJOcYKNl68",
   authDomain: "sya-badminton-live.firebaseapp.com",
@@ -28,45 +60,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-/* 🔥 GET ELEMENTS PROPERLY */
-const t1 = document.getElementById("t1");
-const t2 = document.getElementById("t2");
-const s1 = document.getElementById("s1");
-const s2 = document.getElementById("s2");
-const nt1 = document.getElementById("nt1");
-const nt2 = document.getElementById("nt2");
-const notice = document.getElementById("notice");
-
-/* 🔥 BUTTON EVENTS */
-
-document.getElementById("btnScore").addEventListener("click", () => {
-  set(ref(db, "match"), {
-    t1: t1.value,
-    t2: t2.value,
-    s1: s1.value,
-    s2: s2.value
-  })
-  .then(() => alert("✅ Score Updated"))
-  .catch(e => alert("❌ " + e.message));
+/* 🔴 LIVE MATCH */
+onValue(ref(db,"match"), snap=>{
+  const d=snap.val();
+  if(d){
+    liveMatch.innerHTML = `${d.t1} ${d.s1} - ${d.s2} ${d.t2}`;
+  }
 });
 
-document.getElementById("btnNext").addEventListener("click", () => {
-  set(ref(db, "nextMatch"), {
-    t1: nt1.value,
-    t2: nt2.value
-  })
-  .then(() => alert("✅ Next Match Updated"))
-  .catch(e => alert("❌ " + e.message));
+/* 🟢 NEXT MATCH */
+onValue(ref(db,"nextMatch"), snap=>{
+  const d=snap.val();
+  if(d){
+    nextMatch.innerHTML = `${d.t1} vs ${d.t2}`;
+  }
 });
 
-document.getElementById("btnNotice").addEventListener("click", () => {
-  set(ref(db, "notice"), notice.value)
-  .then(() => alert("✅ Notice Updated"))
-  .catch(e => alert("❌ " + e.message));
+/* 📢 NOTICE */
+onValue(ref(db,"notice"), snap=>{
+  if(snap.val()){
+    noticeBox.innerHTML = snap.val();
+  }
 });
 </script>
 
-
 </body>
 </html>
-
