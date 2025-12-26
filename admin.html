@@ -2,50 +2,68 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SYA Live Match</title>
+<title>SYA Admin Panel</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
   background:#02090c;
   color:white;
   font-family:Arial;
-  text-align:center;
-  padding:20px
+  max-width:400px;
+  margin:auto;
+  padding:15px
 }
-.card{
-  border:1px solid #00f5ff;
-  border-radius:10px;
-  padding:15px;
-  margin:15px 0
+input,textarea,button{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border:none;
+  border-radius:6px
 }
-h2{color:#00f5ff}
-.notice{
-  color:#ffd700;
-  font-weight:bold
+button{
+  background:#00f5ff;
+  font-weight:bold;
+  cursor:pointer
 }
+hr{margin:20px 0}
+h3{color:#00f5ff}
 </style>
 </head>
 <body>
 
-<h2>🏸 Santipur Youth Association</h2>
+<script>
+if(prompt("Admin Password")!=="admin123"){
+  location.href="index.html";
+}
+</script>
 
-<div class="card">
-  <h3>LIVE MATCH</h3>
-  <p id="liveMatch">Waiting...</p>
-</div>
+<h3>LIVE MATCH</h3>
+<input id="t1" placeholder="Team 1">
+<input id="t2" placeholder="Team 2">
+<input id="s1" type="number" placeholder="Score 1">
+<input id="s2" type="number" placeholder="Score 2">
+<button id="btnScore">UPDATE SCORE</button>
 
-<div class="card">
-  <h3>NEXT MATCH</h3>
-  <p id="nextMatch">Waiting...</p>
-</div>
+<hr>
 
-<div class="card notice" id="noticeBox">
-  No Notice
-</div>
+<h3>NEXT MATCH</h3>
+<input id="nt1" placeholder="Next Team 1">
+<input id="nt2" placeholder="Next Team 2">
+<button id="btnNext">UPDATE NEXT MATCH</button>
 
+<hr>
+
+<h3>LIVE NOTICE</h3>
+<textarea id="notice" placeholder="Enter notice"></textarea>
+<button id="btnNotice">UPDATE NOTICE</button>
+
+<!-- 🔥 FIREBASE ADMIN SCRIPT -->
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, set } from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD-gMRHVsV-jJOAmEr_3EfYNsJOcYKNl68",
@@ -60,28 +78,29 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-/* 🔴 LIVE MATCH */
-onValue(ref(db,"match"), snap=>{
-  const d=snap.val();
-  if(d){
-    liveMatch.innerHTML = `${d.t1} ${d.s1} - ${d.s2} ${d.t2}`;
-  }
-});
+/* UPDATE SCORE */
+btnScore.onclick = () => {
+  set(ref(db,"match"),{
+    t1:t1.value,
+    t2:t2.value,
+    s1:s1.value,
+    s2:s2.value
+  }).then(()=>alert("✅ Score Updated"));
+};
 
-/* 🟢 NEXT MATCH */
-onValue(ref(db,"nextMatch"), snap=>{
-  const d=snap.val();
-  if(d){
-    nextMatch.innerHTML = `${d.t1} vs ${d.t2}`;
-  }
-});
+/* UPDATE NEXT MATCH */
+btnNext.onclick = () => {
+  set(ref(db,"nextMatch"),{
+    t1:nt1.value,
+    t2:nt2.value
+  }).then(()=>alert("✅ Next Match Updated"));
+};
 
-/* 📢 NOTICE */
-onValue(ref(db,"notice"), snap=>{
-  if(snap.val()){
-    noticeBox.innerHTML = snap.val();
-  }
-});
+/* UPDATE NOTICE */
+btnNotice.onclick = () => {
+  set(ref(db,"notice"), notice.value)
+  .then(()=>alert("✅ Notice Updated"));
+};
 </script>
 
 </body>
