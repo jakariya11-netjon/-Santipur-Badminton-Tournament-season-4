@@ -1,239 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Santipur Youth Association Badminton Tournament</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Santipur Youth Association Badminton Tournament</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        :root {
-            --neon-cyan: #00f5ff;
-            --neon-pink: #ff2fa6;
-            --gold: #ffd700;
-            --dark: #02090c;
-            --glass: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+:root{
+  --neon-cyan:#00f5ff;
+  --neon-pink:#ff2fa6;
+  --gold:#ffd700;
+  --dark:#02090c;
+  --glass:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.15);
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: #fff;
-            background: #02090c;
-            background: linear-gradient(-45deg, #02090c, #05161d, #0a1f29, #02090c);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            overflow-x: hidden;
-            text-align: center;
-        }
+*{margin:0;padding:0;box-sizing:border-box}
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50% }
-            50% { background-position: 100% 50% }
-            100% { background-position: 0% 50% }
-        }
+body{
+  font-family:Poppins,sans-serif;
+  background:#02090c;
+  color:#fff;
+  text-align:center;
+}
 
-        .container { max-width: 430px; margin: auto; min-height: 100vh; position: relative; padding-bottom: 40px; }
+.container{
+  max-width:430px;
+  margin:auto;
+  min-height:100vh;
+}
 
-        .hero {
-            padding: 40px 20px;
-            background: linear-gradient(to bottom, rgba(2, 9, 12, 0.7), rgba(2, 9, 12, 0.95)),
-                        url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
-            background-size: cover;
-            background-position: center;
-        }
+.hero{
+  padding:40px 20px;
+  background:
+  linear-gradient(to bottom,rgba(2,9,12,.7),rgba(2,9,12,.95)),
+  url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a");
+  background-size:cover;
+}
 
-        .title h1 { font-size: 12px; letter-spacing: 4px; opacity: 0.8; font-family: 'Orbitron'; margin-bottom: 5px; }
-        .title h2 { font-size: 26px; color: var(--neon-cyan); font-family: 'Orbitron'; line-height: 1.2; }
-        .title h3 { font-size: 18px; color: var(--neon-pink); font-family: 'Orbitron'; margin-top: 5px; }
+h1{font-size:12px;letter-spacing:4px;font-family:Orbitron}
+h2{font-size:26px;color:var(--neon-cyan);font-family:Orbitron}
+h3{font-size:18px;color:var(--neon-pink);font-family:Orbitron}
 
-        .highlight {
-            margin: 20px 0;
-            padding: 20px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-        }
+.card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  margin:20px 0;
+  backdrop-filter:blur(10px);
+}
 
-        .highlight small { font-family: 'Orbitron'; font-size: 10px; color: var(--neon-pink); letter-spacing: 2px; text-transform: uppercase; }
-        
-        #liveTeams { font-family: 'Orbitron'; color: var(--neon-cyan); font-size: 18px; margin-top: 5px; }
-        #liveScore { 
-            font-size: 45px; 
-            font-weight: 900;
-            margin-top: 10px;
-            animation: glow 1.2s infinite alternate; 
-        }
+#liveTeams{
+  font-family:Orbitron;
+  font-size:18px;
+  color:var(--neon-cyan);
+}
 
-        @keyframes glow {
-            from { text-shadow: 0 0 10px var(--neon-cyan); }
-            to { text-shadow: 0 0 22px var(--neon-pink); }
-        }
+#liveScore{
+  font-size:42px;
+  font-weight:900;
+  margin-top:10px;
+  animation:glow 1.2s infinite alternate;
+}
 
-        .prizes { display: flex; gap: 15px; margin-bottom: 25px; padding: 0 20px; }
-        .prize {
-            flex: 1;
-            background: var(--glass);
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid var(--glass-border);
-        }
-        .prize.gold { border-color: var(--gold); box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
-        .prize h4 { font-size: 18px; color: var(--gold); font-family: 'Orbitron'; }
+@keyframes glow{
+  from{text-shadow:0 0 10px var(--neon-cyan)}
+  to{text-shadow:0 0 22px var(--neon-pink)}
+}
 
-        .fee {
-            margin: 0 20px 30px;
-            background: var(--neon-pink);
-            padding: 10px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 14px;
-        }
+.notice{color:var(--neon-pink);font-weight:bold}
 
-        .icons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 0 20px 30px; }
-        .icon {
-            background: var(--glass);
-            padding: 15px 10px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 11px;
-            border: 1px solid var(--glass-border);
-        }
+.icons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:20px;
+}
 
-        section { padding: 25px 20px; border-bottom: 1px solid var(--glass-border); text-align: left; }
-        section h2 { font-family: 'Orbitron'; font-size: 18px; margin-bottom: 15px; color: var(--neon-cyan); }
+.icon{
+  background:var(--glass);
+  padding:15px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#fff;
+  font-size:11px;
+  border:1px solid var(--border);
+}
 
-        #liveNotice { color: var(--neon-pink); font-weight: 600; }
-
-        footer { padding: 40px 20px; opacity: 0.5; font-size: 12px; }
-        
-        .sticky-register {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--neon-cyan);
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-family: 'Orbitron';
-            box-shadow: 0 5px 20px rgba(0, 245, 255, 0.4);
-            z-index: 100;
-            width: 80%;
-            max-width: 350px;
-        }
-    </style>
+footer{
+  padding:30px;
+  opacity:.6;
+  font-size:12px;
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
-    <div class="hero">
-        <div class="title">
-            <h1>SANTIPUR YOUTH ASSOCIATION</h1>
-            <h2>BADMINTON TOURNAMENT</h2>
-            <h3>SEASON 4</h3>
-        </div>
 
-        <div class="highlight">
-            <small>Next Match</small>
-            <p id="nextMatch" style="font-size: 18px; font-weight: 600; margin-top:5px;">Waiting...</p>
-        </div>
+  <div class="hero">
+    <h1>SANTIPUR YOUTH ASSOCIATION</h1>
+    <h2>BADMINTON TOURNAMENT</h2>
+    <h3>SEASON 4</h3>
 
-        <div class="highlight">
-            <div id="liveTeams">Waiting for toss...</div>
-            <div id="liveScore">0 - 0</div>
-        </div>
-
-        <div class="prizes">
-            <div class="prize gold">
-                <small>1st Prize</small>
-                <h4>₹15,001</h4>
-            </div>
-            <div class="prize">
-                <small>2nd Prize</small>
-                <h4>₹10,001</h4>
-            </div>
-        </div>
-
-        <div class="fee">JOINING FEE: ₹401 ONLY</div>
-
-        <div class="icons">
-            <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
-            <a href="updates.html" class="icon">🔔<br>UPDATES</a>
-            <a href="location.html" class="icon">📍<br>VENUE</a>
-        </div>
+    <div class="card">
+      <small>NEXT MATCH</small>
+      <p id="nextMatch">Waiting...</p>
     </div>
 
-    <section>
-        <h2>About Tournament</h2>
-        <p style="opacity: 0.8; font-size: 14px; line-height: 1.6;">Santipur Youth Association Badminton Tournament promotes sportsmanship and youth talent. Join us for Season 4!</p>
-    </section>
+    <div class="card">
+      <div id="liveTeams">Waiting...</div>
+      <div id="liveScore">0 - 0</div>
+    </div>
 
-    <section>
-        <h2>📢 Live Notice</h2>
-        <p id="liveNotice">No new notices.</p>
-    </section>
+    <div class="icons">
+      <a class="icon" href="comeetee.html">👥<br>COMMITTEE</a>
+      <a class="icon" href="updates.html">🔔<br>UPDATES</a>
+      <a class="icon" href="location.html">📍<br>VENUE</a>
+    </div>
+  </div>
 
-    <footer>© 2026 Santipur Youth Association</footer>
-    <a class="sticky-register" href="YOUR_GOOGLE_FORM_LINK">▶ REGISTER NOW</a>
+  <div class="card">
+    <h3>📢 LIVE NOTICE</h3>
+    <p id="liveNotice" class="notice">No notice</p>
+  </div>
+
+  <footer>© 2026 Santipur Youth Association</footer>
+
 </div>
 
+<!-- 🔥 FIREBASE LIVE SYNC -->
 <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, onValue } from
+"https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
-    // 🔴 PASTE YOUR REAL FIREBASE CONFIG HERE
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyD-gMRHVsV-jJOAmEr_3EfYNsJOcYKNl68",
   authDomain: "sya-badminton-live.firebaseapp.com",
   databaseURL: "https://sya-badminton-live-default-rtdb.firebaseio.com",
   projectId: "sya-badminton-live",
-  storageBucket: "sya-badminton-live.firebasestorage.app",
+  storageBucket: "sya-badminton-live.appspot.com",
   messagingSenderId: "230817498618",
   appId: "1:230817498618:web:751ba3b21fbf5a62d89043"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
+/* LIVE MATCH */
+onValue(ref(db,"match"), snap=>{
+  const d=snap.val();
+  if(d){
+    liveTeams.innerText = `${d.t1} vs ${d.t2}`;
+    liveScore.innerText = `${d.s1} - ${d.s2}`;
+  }
+});
 
-    const dataRef = ref(db, "/");
-    onValue(dataRef, (snapshot) => {
-        const d = snapshot.val();
-        if (!d) return;
+/* NEXT MATCH */
+onValue(ref(db,"nextMatch"), snap=>{
+  const d=snap.val();
+  if(d){
+    nextMatch.innerText = `${d.t1} vs ${d.t2}`;
+  }
+});
 
-        // Sync Live Match
-        if (d.match) {
-            document.getElementById("liveTeams").innerText = (d.match.t1 || "Team 1") + " vs " + (d.match.t2 || "Team 2");
-            document.getElementById("liveScore").innerText = (d.match.s1 || 0) + " - " + (d.match.s2 || 0);
-        }
-
-        // Sync Next Match
-        if (d.nextMatch) {
-            document.getElementById("nextMatch").innerText = d.nextMatch.t1 + " vs " + d.nextMatch.t2;
-        }
-
-        // Sync Notice
-        if (d.notice) {
-            document.getElementById("liveNotice").innerText = d.notice;
-        }
-    });
+/* NOTICE */
+onValue(ref(db,"notice"), snap=>{
+  if(snap.val()){
+    liveNotice.innerText = snap.val();
+  }
+});
 </script>
 
 </body>
 </html>
-
