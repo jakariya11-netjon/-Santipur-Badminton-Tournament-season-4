@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Live Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{background:#02090c;color:#fff;font-family:Arial;padding:20px}
+    h2,h3{text-align:center}
+    input,button{width:100%;padding:12px;margin:8px 0;font-size:16px}
+    button{background:#00f5ff;border:none;font-weight:bold;cursor:pointer}
+    hr{margin:25px 0;border:0;border-top:1px solid #333}
+  </style>
+</head>
+<body>
+
+<script>
+  if (prompt("Admin Password") !== "admin123") {
+    alert("Wrong password");
+    location.href="index.html";
+  }
+</script>
+
+<h2>🏸 LIVE SCORE ADMIN</h2>
+
+<h3>Live Score</h3>
+<input id="t1" placeholder="Team 1">
+<input id="t2" placeholder="Team 2">
+<input id="s1" type="number" placeholder="Score 1">
+<input id="s2" type="number" placeholder="Score 2">
+<button onclick="updateScore()">UPDATE LIVE SCORE</button>
+
+<hr>
+
+<h3>Next Match</h3>
+<input id="nt1" placeholder="Next Team 1">
+<input id="nt2" placeholder="Next Team 2">
+<button onclick="updateNext()">UPDATE NEXT MATCH</button>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
+  authDomain: "live-score-1dc40.firebaseapp.com",
+  databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "live-score-1dc40",
+  storageBucket: "live-score-1dc40.firebasestorage.app",
+  messagingSenderId: "24992738262",
+  appId: "1:24992738262:web:7521ab00008c2b8156d277"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.updateScore = () => {
+  set(ref(db,"liveMatch"),{
+    team1:t1.value,
+    team2:t2.value,
+    score1:Number(s1.value),
+    score2:Number(s2.value)
+  });
+};
+
+window.updateNext = () => {
+  set(ref(db,"nextMatch"),{
+    team1:nt1.value,
+    team2:nt2.value
+  });
+};
+</script>
+
+</body>
+</html>
