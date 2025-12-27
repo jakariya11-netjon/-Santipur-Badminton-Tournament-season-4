@@ -30,6 +30,14 @@
     document.getElementById("liveScore").innerText =
       `${d.team1} ${d.score1} - ${d.score2} ${d.team2}`;
   });
+        // NEXT MATCH LISTENER
+onValue(ref(db, "nextMatch"), (snapshot) => {
+  const n = snapshot.val();
+  if (!n) return;
+  document.getElementById("nextMatch").innerText =
+    `${n.team1} vs ${n.team2}`;
+});
+
 </script>
 
     <meta charset="UTF-8">
@@ -278,7 +286,7 @@
 
             <div class="highlight">
                 <h4>NEXT MATCH</h4>
-                <p id="liveMatch">Loading...</p>
+<p id="nextMatch">Loading...</p>
             </div>
 
             <div class="highlight">
@@ -361,9 +369,8 @@
         ▶ REGISTER NOW
     </a>
 
-    <script src="firebase.js"></script>
-    <script src="app.js"></script>
 </body>
 
 </html>
+
 
