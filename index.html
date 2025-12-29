@@ -2,41 +2,49 @@
 <html lang="en">
 
 <head>
-    <script type="module">
-  // Firebase SDKs
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+  <meta charset="UTF-8">
 
-  // Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
-    authDomain: "live-score-1dc40.firebaseapp.com",
-    databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "live-score-1dc40",
-    storageBucket: "live-score-1dc40.firebasestorage.app",
-    messagingSenderId: "24992738262",
-    appId: "1:24992738262:web:7521ab00008c2b8156d277"
-  };
+  <!-- ✅ SEO META (script-ৰ আগতে) -->
+  <title>Santipur Badminton Tournament | Badminton Tournament in Assam</title>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase(app);
+  <meta name="description" content="Santipur Badminton Tournament organised by Santipur Youth Association in Assam. A popular badminton tournament in Assam with live score and registration.">
 
-  // LIVE SCORE LISTENER (NO REFRESH)
-  onValue(ref(db, "liveMatch"), (snapshot) => {
-    const d = snapshot.val();
-    if (!d) return;
+  <meta name="robots" content="index, follow">
 
-    document.getElementById("liveScore").innerText =
-      `${d.team1} ${d.score1} - ${d.score2} ${d.team2}`;
-  });
-        // NEXT MATCH LISTENER
-onValue(ref(db, "nextMatch"), (snapshot) => {
-  const n = snapshot.val();
-  if (!n) return;
-  document.getElementById("nextMatch").innerText =
-    `${n.team1} vs ${n.team2}`;
-});
+  <!-- Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
+      authDomain: "live-score-1dc40.firebaseapp.com",
+      databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "live-score-1dc40",
+      storageBucket: "live-score-1dc40.firebasestorage.app",
+      messagingSenderId: "24992738262",
+      appId: "1:24992738262:web:7521ab00008c2b8156d277"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    onValue(ref(db, "liveMatch"), (snapshot) => {
+      const d = snapshot.val();
+      if (!d) return;
+      document.getElementById("liveScore").innerText =
+        `${d.team1} ${d.score1} - ${d.score2} ${d.team2}`;
+    });
+
+    onValue(ref(db, "nextMatch"), (snapshot) => {
+      const n = snapshot.val();
+      if (!n) return;
+      document.getElementById("nextMatch").innerText =
+        `${n.team1} vs ${n.team2}`;
+    });
+  </script>
+</head>
+
 
 </script>
 
@@ -373,6 +381,7 @@ onValue(ref(db, "nextMatch"), (snapshot) => {
 </body>
 
 </html>
+
 
 
 
