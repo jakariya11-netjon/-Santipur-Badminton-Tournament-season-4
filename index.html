@@ -2,282 +2,292 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <!-- ✅ SEO META (script-ৰ আগতে) -->
-  <title>Santipur Badminton Tournament | Badminton Tournament in Assam</title>
+    <!-- ✅ SEO META (script-ৰ আগতে) -->
+    <title>Santipur Badminton Tournament | Badminton Tournament in Assam</title>
 
-  <meta name="description" content="Santipur Badminton Tournament organised by Santipur Youth Association in Assam. A popular badminton tournament in Assam with live score and registration.">
+    <meta name="description"
+        content="Santipur Badminton Tournament organised by Santipur Youth Association in Assam. A popular badminton tournament in Assam with live score and registration.">
 
-  <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-  <!-- Firebase Script -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+    <!-- Firebase Script -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
-      authDomain: "live-score-1dc40.firebaseapp.com",
-      databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "live-score-1dc40",
-      storageBucket: "live-score-1dc40.firebasestorage.app",
-      messagingSenderId: "24992738262",
-      appId: "1:24992738262:web:7521ab00008c2b8156d277"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
+            authDomain: "live-score-1dc40.firebaseapp.com",
+            databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "live-score-1dc40",
+            storageBucket: "live-score-1dc40.firebasestorage.app",
+            messagingSenderId: "24992738262",
+            appId: "1:24992738262:web:7521ab00008c2b8156d277"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
 
-    onValue(ref(db, "liveMatch"), (snapshot) => {
-      const d = snapshot.val();
-      if (!d) return;
-      document.getElementById("liveScore").innerText =
-        `${d.team1} ${d.score1} - ${d.score2} ${d.team2}`;
-    });
+        onValue(ref(db, "liveMatch"), (snapshot) => {
+            const d = snapshot.val();
+            if (!d) return;
+            document.getElementById("liveScore").innerText =
+                `${d.team1} ${d.score1} - ${d.score2} ${d.team2}`;
+        });
 
-    onValue(ref(db, "nextMatch"), (snapshot) => {
-      const n = snapshot.val();
-      if (!n) return;
-      document.getElementById("nextMatch").innerText =
-        `${n.team1} vs ${n.team2}`;
-    });
-  </script>
+        onValue(ref(db, "nextMatch"), (snapshot) => {
+            const n = snapshot.val();
+            if (!n) return;
+            document.getElementById("nextMatch").innerText =
+                `${n.team1} vs ${n.team2}`;
+        });
+    </script>
 </head>
 
 
 </script>
 
-    <meta charset="UTF-8">
-    <title>Santipur Youth Association Badminton Tournament</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Santipur Youth Association Badminton Tournament</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
-        rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
 
-    <style>
-        :root {
-            --neon-cyan: #00f5ff;
-            --neon-pink: #ff2fa6;
-            --gold: #ffd700;
-            --dark: #02090c;
-            --glass: rgba(255, 255, 255, .08);
+<style>
+    :root {
+        --neon-cyan: #00f5ff;
+        --neon-pink: #ff2fa6;
+        --gold: #ffd700;
+        --dark: #02090c;
+        --glass: rgba(255, 255, 255, .08);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box
+    }
+
+    body {
+        font-family: Poppins, sans-serif;
+        color: #fff;
+        background: linear-gradient(-45deg, #02090c, #05161d, #0a1f29, #02090c);
+        background-size: 400% 400%;
+        animation: bg 15s ease infinite;
+    }
+
+    @keyframes bg {
+        0% {
+            background-position: 0% 50%
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
+        50% {
+            background-position: 100% 50%
         }
 
-        body {
-            font-family: Poppins, sans-serif;
-            color: #fff;
-            background: linear-gradient(-45deg, #02090c, #05161d, #0a1f29, #02090c);
-            background-size: 400% 400%;
-            animation: bg 15s ease infinite;
+        100% {
+            background-position: 0% 50%
         }
+    }
 
-        @keyframes bg {
-            0% {
-                background-position: 0% 50%
-            }
+    .android {
+        max-width: 430px;
+        margin: auto
+    }
 
-            50% {
-                background-position: 100% 50%
-            }
+    /* HERO */
+    .hero {
+        min-height: 100vh;
+        padding: 20px;
+        background:
+            linear-gradient(to bottom, rgba(2, 9, 12, .7), rgba(2, 9, 12, .95)),
+            url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        border-bottom: 2px solid var(--neon-cyan);
+    }
 
-            100% {
-                background-position: 0% 50%
-            }
-        }
+    .title {
+        text-align: center;
+        margin-top: 20px
+    }
 
-        .android {
-            max-width: 430px;
-            margin: auto
-        }
+    .title h1 {
+        font-size: 26px;
+        /* h1 ডাঙৰ */
+        letter-spacing: 2px;
+        opacity: .85;
+        font-family: Orbitron;
+    }
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            padding: 20px;
-            background:
-                linear-gradient(to bottom, rgba(2, 9, 12, .7), rgba(2, 9, 12, .95)),
-                url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
-            background-size: cover;
-            background-position: center;
-            border-bottom: 2px solid var(--neon-cyan);
-        }
+    .title h2 {
+        font-size: 18px;
+        /* SEASON 4 অলপ সৰু */
+        color: var(--neon-cyan);
+        font-family: Orbitron;
+    }
 
-        .title {
-            text-align: center;
-            margin-top: 20px
-        }
+    }
 
-        .title h1 {
-            font-size: 11px;
-            letter-spacing: 2px;
-            opacity: .7;
-            font-family: Orbitron
-        }
+    .title h2 {
+        font-size: 26px;
+        color: var(--neon-cyan);
+        font-family: Orbitron
+    }
 
-        .title h2 {
-            font-size: 26px;
-            color: var(--neon-cyan);
-            font-family: Orbitron
-        }
+    .title h3 {
+        font-size: 16px;
+        color: var(--neon-pink);
+        font-family: Orbitron
+    }
 
-        .title h3 {
-            font-size: 16px;
-            color: var(--neon-pink);
-            font-family: Orbitron
-        }
+    .gradient-text {
+        background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-        .gradient-text {
-            background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    /* HIGHLIGHT CARDS */
+    .highlight {
+        margin: 22px auto;
+        padding: 26px;
+        border-radius: 26px;
+        background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
+        border: 2px solid rgba(255, 47, 166, .5);
+        text-align: center;
+        box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
+    }
 
-        /* HIGHLIGHT CARDS */
-        .highlight {
-            margin: 22px auto;
-            padding: 26px;
-            border-radius: 26px;
-            background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
-            border: 2px solid rgba(255, 47, 166, .5);
-            text-align: center;
-            box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
-        }
+    .highlight h4 {
+        font-family: Orbitron;
+        color: var(--neon-pink);
+        font-size: 15px
+    }
 
-        .highlight h4 {
-            font-family: Orbitron;
-            color: var(--neon-pink);
-            font-size: 15px
-        }
+    .highlight p {
+        font-size: 20px;
+        font-weight: 900
+    }
 
-        .highlight p {
-            font-size: 20px;
-            font-weight: 900
-        }
+    /* PRIZE */
+    .prizes {
+        display: flex;
+        gap: 14px
+    }
 
-        /* PRIZE */
-        .prizes {
-            display: flex;
-            gap: 14px
-        }
+    .prize {
+        flex: 1;
+        background: var(--glass);
+        padding: 18px;
+        border-radius: 18px;
+        text-align: center;
+    }
 
-        .prize {
-            flex: 1;
-            background: var(--glass);
-            padding: 18px;
-            border-radius: 18px;
-            text-align: center;
-        }
+    .prize.gold {
+        border: 1px solid var(--gold)
+    }
 
-        .prize.gold {
-            border: 1px solid var(--gold)
-        }
+    .prize.gold h4 {
+        color: var(--gold)
+    }
 
-        .prize.gold h4 {
-            color: var(--gold)
-        }
+    .fee {
+        max-width: 260px;
+        margin: 10px auto 18px;
+        padding: 10px;
+        border-radius: 14px;
+        border: 2px solid var(--neon-cyan);
+        text-align: center;
+    }
 
-        .fee {
-            max-width: 260px;
-            margin: 10px auto 18px;
-            padding: 10px;
-            border-radius: 14px;
-            border: 2px solid var(--neon-cyan);
-            text-align: center;
-        }
+    .fee span {
+        font-size: 20px;
+        color: var(--neon-cyan);
+        font-weight: 800
+    }
 
-        .fee span {
-            font-size: 20px;
-            color: var(--neon-cyan);
-            font-weight: 800
-        }
+    /* ICONS */
+    .icons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px
+    }
 
-        /* ICONS */
-        .icons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px
-        }
+    .icon {
+        padding: 16px 10px;
+        border-radius: 18px;
+        background: var(--glass);
+        text-align: center;
+        font-size: 11px;
+        color: #fff;
+        text-decoration: none;
+    }
 
-        .icon {
-            padding: 16px 10px;
-            border-radius: 18px;
-            background: var(--glass);
-            text-align: center;
-            font-size: 11px;
-            color: #fff;
-            text-decoration: none;
-        }
+    /* SECTIONS */
+    section {
+        padding: 45px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, .05);
+    }
 
-        /* SECTIONS */
-        section {
-            padding: 45px 18px;
-            border-bottom: 1px solid rgba(255, 255, 255, .05);
-        }
+    section h2 {
+        font-family: Orbitron;
+        color: var(--neon-cyan);
+        margin-bottom: 12px;
+    }
 
-        section h2 {
-            font-family: Orbitron;
-            color: var(--neon-cyan);
-            margin-bottom: 12px;
-        }
+    /* LIVE NOTICE */
+    .notice-box {
+        width: 100%;
+        padding: 26px;
+        border-radius: 26px;
+        background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
+        border: 2px solid rgba(255, 47, 166, .5);
+        text-align: center;
+        box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
+    }
 
-        /* LIVE NOTICE */
-        .notice-box {
-            width: 100%;
-            padding: 26px;
-            border-radius: 26px;
-            background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
-            border: 2px solid rgba(255, 47, 166, .5);
-            text-align: center;
-            box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
-        }
+    .notice-box h3 {
+        font-family: Orbitron;
+        color: var(--neon-pink);
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
 
-        .notice-box h3 {
-            font-family: Orbitron;
-            color: var(--neon-pink);
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
+    .notice-box p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
 
-        .notice-box p {
-            font-size: 13px;
-            line-height: 1.7;
-        }
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 40px 20px 100px;
+        font-size: 12px;
+        opacity: .5;
+    }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 40px 20px 100px;
-            font-size: 12px;
-            opacity: .5;
-        }
-
-        /* REGISTER BUTTON */
-        .sticky-register {
-            position: fixed;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 92%;
-            max-width: 420px;
-            padding: 16px;
-            border-radius: 40px;
-            background: linear-gradient(135deg, #00f5ff, #00ff99);
-            color: #003c40;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 900;
-            text-decoration: none;
-            z-index: 999;
-        }
-    </style>
+    /* REGISTER BUTTON */
+    .sticky-register {
+        position: fixed;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 92%;
+        max-width: 420px;
+        padding: 16px;
+        border-radius: 40px;
+        background: linear-gradient(135deg, #00f5ff, #00ff99);
+        color: #003c40;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 900;
+        text-decoration: none;
+        z-index: 999;
+    }
+</style>
 </head>
 
 <body>
@@ -286,40 +296,200 @@
         <!-- HERO -->
         <div class="hero">
             <div class="title">
-                <h1>SANTIPUR YOUTH ASSOCIATION</h1>
-                <h2>BADMINTON</h2>
-                <h2 class="gradient-text">TOURNAMENT</h2>
-                <h3>SEASON 4</h3>
+                <h1>SANTIPUR YOUTH ASSOCIATION </h1>
+                <h1>BADMINTON TOURNAMENT</h1>
+                <h2>SEASON 4</h2>
             </div>
-
-            <div class="highlight">
-                <h4>NEXT MATCH</h4>
-<p id="nextMatch">Loading...</p>
-            </div>
-
             <div class="highlight">
                 <h4>LIVE SCORE</h4>
                 <p id="liveScore">0 - 0</p>
                 <small id="liveStatus">Waiting...</small>
             </div>
-
-            <div class="prizes">
-                <div class="prize gold"><small>1ST PRIZE</small>
-                    <h4>₹15,001</h4>
-                </div>
-                <div class="prize"><small>2ND PRIZE</small>
-                    <h4>₹10,001</h4>
-                </div>
+            <div class="highlight">
+                <h4>NEXT MATCH</h4>
+                <p id="nextMatch">Loading...</p>
             </div>
+            <style>
+                body {
+                    margin: 0;
+                    font-family: Arial;
+                    background: #02090c;
+                    color: #fff;
+                }
 
-            <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
+                /* ===== SLIDER ===== */
+                .slider {
+                    max-width: 360px;
+                    height: 220px;
+                    margin: 30px auto;
+                    overflow: hidden;
+                    border: 2px solid #aaa;
+                    border-radius: 14px;
+                    background: #000;
+                }
 
-            <div class="icons">
-                <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
-                <a href="updates.html" class="icon">🔔<br>UPDATES</a>
-                <a href="location.html" class="icon">📍<br>VENUE</a>
-                 <a href="contuct.html" class="icon">📞<br>CONTACT</a>
-            </div>
+                .slides {
+                    display: flex;
+                    transition: .6s ease;
+                }
+
+                .slide {
+                    min-width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                }
+
+                /* DOTS */
+                .dots {
+                    text-align: center;
+                    margin-top: 8px;
+                }
+
+                .dots span {
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    border: 2px solid #666;
+                    display: inline-block;
+                    margin: 0 4px;
+                }
+
+                .dots span.active {
+                    background: #00f5ff;
+                    border-color: #00f5ff;
+                }
+
+                /* MODAL */
+                .modal {
+                    display: none;
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0, 0, 0, .9);
+                    z-index: 9999;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .modal img,
+                .modal video {
+                    max-width: 95%;
+                    max-height: 90%;
+                    border-radius: 14px;
+                }
+            </style>
+            </head>
+
+            <body>
+
+                <h3 style="text-align:center">📸🎥 Tournament Gallery</h3>
+
+                <div class="slider">
+                    <div class="slides" id="slides">
+
+                        <!-- IMAGE -->
+                        <img src="work1.jpeg" class="slide" onclick="openImg(this.src)">
+
+                        <!-- VIDEO 1 (AUTO PLAY SILENT) -->
+                        <video class="slide slider-video" src="work2.mp4" poster="thumb1.jpg" muted playsinline loop>
+                        </video>
+
+                        <!-- VIDEO 2 (AUTO PLAY SILENT) -->
+                        <video class="slide slider-video" src="work3.mp4" poster="thumb2.jpg" muted playsinline loop>
+                        </video>
+
+                    </div>
+                </div>
+
+                <div class="dots" id="dots">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <!-- IMAGE MODAL -->
+                <div id="imgModal" class="modal" onclick="closeImg()">
+                    <img id="modalImg">
+                </div>
+
+                <!-- VIDEO MODAL -->
+                <div id="videoModal" class="modal" onclick="closeVideo()">
+                    <video id="modalVideo" controls></video>
+                </div>
+
+                <!-- ===== JAVASCRIPT (INLINE) ===== -->
+                <script>
+                    let index = 0;
+                    const slides = document.getElementById("slides");
+                    const dots = document.querySelectorAll("#dots span");
+                    const videos = document.querySelectorAll(".slider-video");
+
+                    /* AUTO SLIDE */
+                    function showSlide() {
+                        slides.style.transform = `translateX(-${index * 100}%)`;
+
+                        dots.forEach(d => d.classList.remove("active"));
+                        dots[index].classList.add("active");
+
+                        /* stop all videos */
+                        videos.forEach(v => v.pause());
+
+                        /* play video only if current slide is video */
+                        if (index > 0) {
+                            const v = videos[index - 1];
+                            v.currentTime = 0;
+                            v.play();
+                        }
+
+                        index = (index + 1) % dots.length;
+                    }
+                    setInterval(showSlide, 3500);
+                    showSlide();
+
+                    /* FULLSCREEN IMAGE */
+                    function openImg(src) {
+                        modalImg.src = src;
+                        imgModal.style.display = "flex";
+                    }
+                    function closeImg() {
+                        imgModal.style.display = "none";
+                    }
+
+                    /* FULLSCREEN VIDEO WITH SOUND */
+                    function openVideo(src) {
+                        modalVideo.src = src;
+                        modalVideo.muted = false;
+                        modalVideo.play();
+                        videoModal.style.display = "flex";
+                    }
+                    function closeVideo() {
+                        modalVideo.pause();
+                        modalVideo.src = "";
+                        videoModal.style.display = "none";
+                    }
+
+                    /* CLICK ON SLIDER VIDEO → FULLSCREEN */
+                    videos.forEach(v => {
+                        v.addEventListener("click", () => {
+                            openVideo(v.src);
+                        });
+                    });
+                </script>
+
+                <div class="prizes">
+                    <div class="prize gold"><small>1ST PRIZE</small>
+                        <h4>₹15,001</h4>
+                    </div>
+                    <div class="prize"><small>2ND PRIZE</small>
+                        <h4>₹10,001</h4>
+                    </div>
+                </div>
+
+                <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
+
+                <div class="icons">
+                    <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
+                    <a href="updates.html" class="icon">🔔<br>UPDATES</a>
+                    <a href="location.html" class="icon">📍<br>VENUE</a>
+                    <a href="contuct.html" class="icon">📞<br>CONTACT</a>
+                </div>
         </div>
 
         <!-- ABOUT -->
@@ -381,10 +551,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
