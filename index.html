@@ -389,13 +389,11 @@
                         <!-- IMAGE -->
                         <img src="work1.jpeg" class="slide" onclick="openImg(this.src)">
 
-                        <!-- VIDEO 1 (AUTO PLAY SILENT) -->
-                        <video class="slide slider-video" src="work2.mp4" poster="thumb1.jpg" muted playsinline loop>
-                        </video>
+                        <!-- VIDEO 1 -->
+                        <video class="slide slider-video" src="work2.mp4" muted playsinline loop></video>
 
-                        <!-- VIDEO 2 (AUTO PLAY SILENT) -->
-                        <video class="slide slider-video" src="work3.mp4" poster="thumb2.jpg" muted playsinline loop>
-                        </video>
+                        <!-- VIDEO 2 -->
+                        <video class="slide slider-video" src="work3.mp4" muted playsinline loop></video>
 
                     </div>
                 </div>
@@ -405,45 +403,67 @@
                 </div>
 
                 <!-- IMAGE MODAL -->
-                <div id="imgModal" class="modal" onclick="closeImg()">
+                <div id="imgModal" class="modal">
+                    <button class="back-btn" onclick="closeImg()">← Back</button>
                     <img id="modalImg">
                 </div>
 
                 <!-- VIDEO MODAL -->
-                <div id="videoModal" class="modal" onclick="closeVideo()">
+                <div id="videoModal" class="modal">
+                    <button class="back-btn" onclick="closeVideo()">← Back</button>
                     <video id="modalVideo" controls></video>
                 </div>
 
-                <!-- ===== JAVASCRIPT (INLINE) ===== -->
+                <style>
+                    .modal {
+                        display: none;
+                        position: fixed;
+                        inset: 0;
+                        background: rgba(0, 0, 0, .9);
+                        z-index: 9999;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .modal img,
+                    .modal video {
+                        max-width: 95%;
+                        max-height: 90%;
+                        border-radius: 14px;
+                    }
+
+                    .back-btn {
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        padding: 10px 16px;
+                        border: none;
+                        border-radius: 20px;
+                        background: linear-gradient(135deg, #00f5ff, #00ff99);
+                        color: #003c40;
+                        font-weight: bold;
+                        cursor: pointer;
+                        z-index: 10000;
+                    }
+                </style>
+
                 <script>
                     let index = 0;
                     const slides = document.getElementById("slides");
                     const dots = document.querySelectorAll("#dots span");
                     const videos = document.querySelectorAll(".slider-video");
 
-                    /* AUTO SLIDE */
                     function showSlide() {
                         slides.style.transform = `translateX(-${index * 100}%)`;
-
                         dots.forEach(d => d.classList.remove("active"));
                         dots[index].classList.add("active");
-
-                        /* stop all videos */
                         videos.forEach(v => v.pause());
-
-                        /* play video only if current slide is video */
-                        if (index > 0) {
-                            const v = videos[index - 1];
-                            v.currentTime = 0;
-                            v.play();
-                        }
-
+                        if (index > 0) { videos[index - 1].play(); }
                         index = (index + 1) % dots.length;
                     }
                     setInterval(showSlide, 3500);
                     showSlide();
 
-                    /* FULLSCREEN IMAGE */
                     function openImg(src) {
                         modalImg.src = src;
                         imgModal.style.display = "flex";
@@ -452,7 +472,6 @@
                         imgModal.style.display = "none";
                     }
 
-                    /* FULLSCREEN VIDEO WITH SOUND */
                     function openVideo(src) {
                         modalVideo.src = src;
                         modalVideo.muted = false;
@@ -465,13 +484,11 @@
                         videoModal.style.display = "none";
                     }
 
-                    /* CLICK ON SLIDER VIDEO → FULLSCREEN */
                     videos.forEach(v => {
-                        v.addEventListener("click", () => {
-                            openVideo(v.src);
-                        });
+                        v.addEventListener("click", () => openVideo(v.src));
                     });
                 </script>
+
 
                 <div class="prizes">
                     <div class="prize gold"><small>1ST PRIZE</small>
