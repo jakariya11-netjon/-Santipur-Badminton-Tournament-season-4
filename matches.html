@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Matches</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #02090c;
+            color: white;
+            font-family: Poppins;
+            padding: 20px
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🏸 Teams Available</h2>
+
+    <div id="teamList"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+
+        const app = initializeApp({
+            apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
+            databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app"
+        });
+
+        const db = getDatabase(app);
+
+        onValue(ref(db, "teams"), snap => {
+            let html = "";
+            snap.forEach(item => {
+                html += `<div class="box">${item.val().name}</div>`;
+            });
+            teamList.innerHTML = html;
+        });
+    </script>
+
+</body>
+
+</html>

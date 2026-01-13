@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Match History</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --gold1: #ffeb87;
+            --gold2: #ffd142;
+            --bg: #02090c;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            font-family: Poppins, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* ANDROID CONTAINER (Perfect Device Size) */
+        .android {
+            width: 100%;
+            max-width: 430px;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: Orbitron;
+            color: #ffd700;
+            font-size: 22px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 15px #ffd700;
+        }
+
+        /* GRID - PERFECT ANDROID SQUARES */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        /* GOLD CARD */
+        .card {
+            background: linear-gradient(135deg, var(--gold1), var(--gold2));
+            padding: 14px;
+            border-radius: 18px;
+            color: #000;
+            font-weight: 600;
+            text-align: center;
+            font-size: 14px;
+            min-height: 115px;
+            /* FIXED ANDROID SIZE */
+            box-shadow:
+                0 0 12px rgba(255, 215, 0, 0.4),
+                inset 0 0 8px rgba(255, 255, 255, 0.45);
+
+            opacity: 0;
+            transform: scale(0.1);
+        }
+
+        .winner-badge {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        @keyframes bombIn {
+            0% {
+                transform: scale(0.1) rotate(12deg);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.12);
+                opacity: 1;
+            }
+
+            80% {
+                transform: scale(0.92);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            display: block;
+            margin: 25px auto;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #00f5ff, #00ff99);
+            color: #003c40;
+            font-weight: 800;
+            border-radius: 30px;
+            text-decoration: none;
+            width: fit-content;
+            box-shadow: 0 0 20px rgba(0, 255, 180, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="android">
+
+        <h2>🏆 Match History</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <span class="winner-badge">🏅</span>
+                Team A (21)<br>Vs<br>Team B (17)<br>Win: Team A
+            </div>
+
+            <div class="card">
+                <span class="winner-badge">🏅</span>
+                Team X (21)<br>Vs<br>Team Y (17)<br>Win: Team X
+            </div>
+
+            <div class="card">
+                <span class="winner-badge">🏅</span>
+                Team C (21)<br>Vs<br>Team D (18)<br>Win: Team C
+            </div>
+
+            <div class="card">
+                <span class="winner-badge">🏅</span>
+                Team G (21)<br>Vs<br>Team H (20)<br>Win: Team G
+            </div>
+
+            <div class="card">
+                <span class="winner-badge">🏅</span>
+                Team M (22)<br>Vs<br>Team N (20)<br>Win: Team M
+            </div>
+
+            <div class="card">
+                <span class="winner-badge">🏅</span>
+                Team A (21)<br>Vs<br>Team C (19)<br>Win: Team A
+            </div>
+
+        </div>
+
+        <a href="index.html" class="back-btn">← Home</a>
+
+    </div>
+
+    <!-- SOUND EFFECT -->
+    <audio id="popSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_89a8e49464.mp3"></audio>
+
+    <script>
+        const cards = document.querySelectorAll(".card");
+        const pop = document.getElementById("popSound");
+
+        // Allow sound on first tap
+        document.body.addEventListener("click", () => {
+            pop.volume = 1.0;
+        }, { once: true });
+
+        // Animation Each Card
+        cards.forEach((card, i) => {
+            setTimeout(() => {
+                card.style.animation = "bombIn 0.45s forwards";
+                try {
+                    pop.currentTime = 0;
+                    pop.play();
+                } catch { }
+            }, i * 200);
+        });
+    </script>
+
+</body>
+
+</html>
