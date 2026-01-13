@@ -3,14 +3,408 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Santipur Badminton Tournament | Badminton Tournament in Assam</title>
+    <title>Santipur Badminton Tournament | Assam</title>
     <meta name="description"
-        content="Santipur Badminton Tournament organised by Santipur Youth Association in Assam. A popular badminton tournament in Assam with live score and registration.">
-    <meta name="robots" content="index, follow">
-    <!-- Firebase Script -->
+        content="Santipur Youth Association Badminton Tournament. Live score, registration, match updates in Assam.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --neon-cyan: #00f5ff;
+            --neon-pink: #ff2fa6;
+            --gold: #ffd700;
+            --dark: #02090c;
+            --glass: rgba(255, 255, 255, .08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #02090c, #05161d, #0a1f29, #02090c);
+            background-size: 400% 400%;
+            animation: bgMove 15s ease infinite;
+            color: white;
+        }
+
+        @keyframes bgMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .android {
+            max-width: 430px;
+            margin: auto;
+            padding-bottom: 120px;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 30px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(2, 9, 12, 0.3), rgba(2, 9, 12, 0.95)),
+                url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
+            background-size: cover;
+            border-bottom: 2px solid var(--neon-cyan);
+        }
+
+        .title h1 {
+            font-family: "Orbitron";
+            font-size: 26px;
+            letter-spacing: 2px;
+        }
+
+        .title h2 {
+            font-family: "Orbitron";
+            font-size: 18px;
+            color: var(--neon-cyan);
+        }
+
+        .highlight {
+            margin: 22px auto;
+            padding: 22px;
+            border-radius: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 47, 166, 0.4);
+        }
+
+        .highlight h4 {
+            color: var(--neon-pink);
+            font-size: 14px;
+            font-family: Orbitron;
+        }
+
+        .highlight p {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        /* PRIZES — BIG + GLOW */
+        .prizes {
+            display: flex;
+            gap: 18px;
+            padding: 10px;
+        }
+
+        .prize {
+            flex: 1;
+            padding: 26px 10px;
+            border-radius: 18px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1.5px solid var(--glass-border);
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.08),
+                0 0 20px rgba(0, 245, 255, 0.3);
+            transition: 0.3s;
+        }
+
+        .prize:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.6);
+        }
+
+        .prize.gold {
+            border: 2px solid var(--gold);
+            background: rgba(255, 215, 0, 0.12);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+        }
+
+        .prize.gold h4 {
+            color: var(--gold);
+        }
+
+        .prize h4 {
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .fee {
+            margin: 20px auto;
+            border: 2px solid var(--neon-cyan);
+            padding: 12px;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .fee span {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--neon-cyan);
+        }
+
+        /* ICON GRID */
+        .icons {
+            padding: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .icon {
+            background: rgba(255, 255, 255, 0.07);
+            padding: 18px;
+            border-radius: 18px;
+            font-size: 13px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .icon:hover {
+            background: rgba(0, 245, 255, 0.12);
+            border: 1px solid var(--neon-cyan);
+            transform: translateY(-5px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 35px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        section h2 {
+            font-family: Orbitron;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            opacity: 0.6;
+            padding: 30px 10px;
+        }
+
+        /* REGISTER BUTTON */
+        .sticky-register {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 420px;
+            padding: 16px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #00f5ff, #00ff99);
+            font-size: 18px;
+            font-weight: 900;
+            color: #003c40;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0, 255, 200, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="android">
+
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <div class="title">
+                <h1>SANTIPUR YOUTH ASSOCIATION</h1>
+                <h1>BADMINTON TOURNAMENT</h1>
+                <h2>SEASON 4</h2>
+            </div>
+
+            <!-- LIVE SCORE -->
+            <div class="highlight">
+                <h4>LIVE SCORE</h4>
+                <p id="liveScore">0 - 0</p>
+            </div>
+
+            <!-- NEXT MATCH -->
+            <div class="highlight">
+                <h4>NEXT MATCH</h4>
+                <p id="nextMatch">Loading...</p>
+            </div>
+            <div class="icons" style="margin-top:15px;">
+                <a href="Upcoming.html" class="icon">📅<br>MATCHES</a>
+                <a href="history.html" class="icon">📜<br>HISTORY</a>
+                <a href="live.html" class="icon">📜<br>live view </a>
+            </div>
+
+            <!-- 🔥 GALLERY TITLE -->
+            <h3 style="text-align:center;margin-top:10px">📸🎥 Tournament Gallery</h3>
+
+            <!-- 🔥 SLIDER CONTAINER -->
+            <div class="slider" style="
+            max-width: 360px;
+            height: 220px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 14px;
+            background:black;
+            border:1px solid rgba(255,255,255,0.2);
+        ">
+                <div class="slides" id="slides" style="display:flex;transition:.6s;">
+                    <!-- IMAGE -->
+                    <img src="work1.jpeg" class="slide" style="width:100%;object-fit:cover;"
+                        onclick="openImg(this.src)">
+
+                    <!-- VIDEO 1 -->
+                    <video class="slide slider-video" src="work2.mp4" muted loop playsinline
+                        style="width:100%;object-fit:cover;"></video>
+
+                    <!-- VIDEO 2 -->
+                    <video class="slide slider-video" src="work3.mp4" muted loop playsinline
+                        style="width:100%;object-fit:cover;"></video>
+                </div>
+            </div>
+
+            <!-- SLIDER DOTS -->
+            <div class="dots" id="dots" style="text-align:center;">
+                <span
+                    style="width:9px;height:9px;border-radius:50%;display:inline-block;border:2px solid #666;margin:0 3px;"></span>
+                <span
+                    style="width:9px;height:9px;border-radius:50%;display:inline-block;border:2px solid #666;margin:0 3px;"></span>
+                <span
+                    style="width:9px;height:9px;border-radius:50%;display:inline-block;border:2px solid #666;margin:0 3px;"></span>
+            </div>
+
+            <!-- IMAGE MODAL -->
+            <div id="imgModal" class="modal" style="
+            display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);
+            align-items:center;justify-content:center;z-index:9999;
+        ">
+                <button onclick="closeImg()" style="
+                position:absolute;top:15px;left:15px;padding:10px 16px;
+                border:none;border-radius:20px;background:linear-gradient(135deg,#00f5ff,#00ff99);
+                color:#003c40;font-weight:bold;cursor:pointer;
+            ">← Back</button>
+                <img id="modalImg" style="max-width:95%;max-height:90%;border-radius:14px;">
+            </div>
+
+            <!-- VIDEO MODAL -->
+            <div id="videoModal" class="modal" style="
+            display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);
+            align-items:center;justify-content:center;z-index:9999;
+        ">
+                <button onclick="closeVideo()" style="
+                position:absolute;top:15px;left:15px;padding:10px 16px;
+                border:none;border-radius:20px;background:linear-gradient(135deg,#00f5ff,#00ff99);
+                color:#003c40;font-weight:bold;cursor:pointer;
+            ">← Back</button>
+                <video id="modalVideo" controls style="max-width:95%;max-height:90%;border-radius:14px;"></video>
+            </div>
+            <!-- PRIZES SECTION -->
+            <div class="prizes">
+                <div class="prize gold">
+                    <small style="font-size:12px;">1ST PRIZE</small>
+                    <h4>₹15,001</h4>
+                </div>
+                <div class="prize">
+                    <small style="font-size:12px;">2ND PRIZE</small>
+                    <h4>₹10,001</h4>
+                </div>
+            </div>
+
+            <!-- FEE SECTION -->
+            <div class="fee">
+                JOINING FEE<br>
+                <span>₹401 ONLY</span>
+            </div>
+
+            <!-- ICONS GRID -->
+            <div class="icons">
+                <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
+                <a href="location.html" class="icon">📍<br>VENUE</a>
+                <a href="contuct.html" class="icon">📞<br>CONTACT</a>
+            </div>
+        </div> <!-- END HERO -->
+
+
+        <!-- ABOUT SECTION -->
+        <section>
+            <h2>About Tournament</h2>
+            <p>
+                Santipur Youth Association Badminton Tournament is organised every year
+                to promote sportsmanship, discipline and youth talent.
+                The event features top players showcasing skill and passion.
+            </p>
+        </section>
+
+        <!-- RULES SECTION (ASSAMESE) -->
+        <section>
+            <h2>🏸 খেলৰ নিয়মাৱলী</h2>
+            <ol style="padding-left:20px;line-height:1.8;opacity:.9">
+                <li>খেল সমূহ আবেলি ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
+                <li>খেলসমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
+                <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
+                <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
+                <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
+                <li>খেলসমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
+                <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
+                <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
+            </ol>
+        </section>
+
+        <!-- MATCH SCHEDULE SECTION -->
+        <section>
+            <h2>Match Schedule</h2>
+
+            <div style="
+            background:var(--glass);
+            padding:12px;
+            border-radius:10px;
+            margin-bottom:10px;
+        ">
+                17 Jan 2026 – Opening Matches
+            </div>
+
+            <div style="
+            background:var(--glass);
+            padding:12px;
+            border-radius:10px;
+        ">
+                18 Jan 2026 – Semi Final & Final
+            </div>
+        </section>
+        <!-- FOOTER -->
+        <footer>
+            © 2026 Santipur Youth Association
+        </footer>
+
+    </div> <!-- END .android -->
+
+
+    <!-- REGISTER BUTTON -->
+    <a class="sticky-register"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdvdH39ynAJms2HWMeqHXalwVdQF9fRRSJlkrhI5wtdke5gGg/viewform">
+        ▶ REGISTER NOW
+    </a>
+
+
+    <!-- ============================= -->
+    <!-- 🔥 FIREBASE LIVE SCORE SCRIPT -->
+    <!-- ============================= -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
             authDomain: "live-score-1dc40.firebaseapp.com",
@@ -38,461 +432,67 @@
                 `${n.team1} vs ${n.team2}`;
         });
     </script>
-</head>
 
 
-</script>
+    <!-- ============================= -->
+    <!-- 🔥 SLIDER SCRIPT (AUTO + MODAL) -->
+    <!-- ============================= -->
+    <script>
+        let index = 0;
+        const slides = document.getElementById("slides");
+        const dots = document.querySelectorAll("#dots span");
+        const videos = document.querySelectorAll(".slider-video");
 
-<meta charset="UTF-8">
-<title>Santipur Youth Association Badminton Tournament</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        function showSlide() {
+            slides.style.transform = `translateX(-${index * 100}%)`;
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap"
-    rel="stylesheet">
+            dots.forEach(dot => dot.style.background = "transparent");
+            dots[index].style.background = "#00f5ff";
 
-<style>
-    :root {
-        --neon-cyan: #00f5ff;
-        --neon-pink: #ff2fa6;
-        --gold: #ffd700;
-        --dark: #02090c;
-        --glass: rgba(255, 255, 255, .08);
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box
-    }
-    body {
-        font-family: Poppins, sans-serif;
-        color: #fff;
-        background: linear-gradient(-45deg, #02090c, #05161d, #0a1f29, #02090c);
-        background-size: 400% 400%;
-        animation: bg 15s ease infinite;
-    }
-    @keyframes bg {
-        0% {
-            background-position: 0% 50%
+            videos.forEach(v => v.pause());
+
+            if (index > 0) {
+                videos[index - 1].play();
+            }
+
+            index = (index + 1) % dots.length;
         }
-        50% {
-            background-position: 100% 50%
+
+        setInterval(showSlide, 3500);
+        showSlide();
+
+
+        /* IMAGE MODAL */
+        function openImg(src) {
+            document.getElementById("modalImg").src = src;
+            document.getElementById("imgModal").style.display = "flex";
         }
-        100% {
-            background-position: 0% 50%
+        function closeImg() {
+            document.getElementById("imgModal").style.display = "none";
         }
-    }
 
-    .android {
-        max-width: 430px;
-        margin: auto
-    }
-    /* HERO */
-    .hero {
-        min-height: 100vh;
-        padding: 20px;
-        background:
-            linear-gradient(to bottom, rgba(2, 9, 12, .7), rgba(2, 9, 12, .95)),
-            url("https://images.unsplash.com/photo-1626225967045-961ecf22fe4a?q=80&w=2070&auto=format&fit=crop");
-        background-size: cover;
-        background-position: center;
-        border-bottom: 2px solid var(--neon-cyan);
-    }
-    .title {
-        text-align: center;
-        margin-top: 20px
-    }
-    .title h1 {
-        font-size: 26px;
-        /* h1 ডাঙৰ */
-        letter-spacing: 2px;
-        opacity: .85;
-        font-family: Orbitron;
-    }
-    .title h2 {
-        font-size: 18px;
-        /* SEASON 4 অলপ সৰু */
-        color: var(--neon-cyan);
-        font-family: Orbitron;
-    }
-    }
+        /* VIDEO MODAL */
+        const modalVideo = document.getElementById("modalVideo");
 
-    .title h2 {
-        font-size: 26px;
-        color: var(--neon-cyan);
-        font-family: Orbitron
-    }
+        function openVideo(src) {
+            modalVideo.src = src;
+            modalVideo.muted = false;
+            modalVideo.play();
+            document.getElementById("videoModal").style.display = "flex";
+        }
 
-    .title h3 {
-        font-size: 16px;
-        color: var(--neon-pink);
-        font-family: Orbitron
-    }
+        function closeVideo() {
+            modalVideo.pause();
+            modalVideo.src = "";
+            document.getElementById("videoModal").style.display = "none";
+        }
 
-    .gradient-text {
-        background: linear-gradient(to right, var(--neon-cyan), var(--neon-pink), var(--gold));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+        document.querySelectorAll(".slider-video").forEach(v => {
+            v.addEventListener("click", () => openVideo(v.src));
+        });
+    </script>
 
-    /* HIGHLIGHT CARDS */
-    .highlight {
-        margin: 22px auto;
-        padding: 26px;
-        border-radius: 26px;
-        background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
-        border: 2px solid rgba(255, 47, 166, .5);
-        text-align: center;
-        box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
-    }
-    .highlight h4 {
-        font-family: Orbitron;
-        color: var(--neon-pink);
-        font-size: 15px
-    }
-    .highlight p {
-        font-size: 20px;
-        font-weight: 900
-    }
-    /* PRIZE */
-    .prizes {
-        display: flex;
-        gap: 14px
-    }
-    .prize {
-        flex: 1;
-        background: var(--glass);
-        padding: 18px;
-        border-radius: 18px;
-        text-align: center;
-    }
-    .prize.gold {
-        border: 1px solid var(--gold)
-    }
-    .prize.gold h4 {
-        color: var(--gold)
-    }
-    .fee {
-        max-width: 260px;
-        margin: 10px auto 18px;
-        padding: 10px;
-        border-radius: 14px;
-        border: 2px solid var(--neon-cyan);
-        text-align: center;
-    }
-    .fee span {
-        font-size: 20px;
-        color: var(--neon-cyan);
-        font-weight: 800
-    }
-    /* ICONS */
-    .icons {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px
-    }
-    .icon {
-        padding: 16px 10px;
-        border-radius: 18px;
-        background: var(--glass);
-        text-align: center;
-        font-size: 11px;
-        color: #fff;
-        text-decoration: none;
-    }
-    /* SECTIONS */
-    section {
-        padding: 45px 18px;
-        border-bottom: 1px solid rgba(255, 255, 255, .05);
-    }
-    section h2 {
-        font-family: Orbitron;
-        color: var(--neon-cyan);
-        margin-bottom: 12px;
-    }
-    .notice-box h3 {
-        font-family: Orbitron;
-        color: var(--neon-pink);
-        font-size: 15px;
-        margin-bottom: 10px;
-    }
-
-    .notice-box p {
-        font-size: 13px;
-        line-height: 1.7;
-    }
-    /* FOOTER */
-    footer {
-        text-align: center;
-        padding: 40px 20px 100px;
-        font-size: 12px;
-        opacity: .5;
-    }
-    /* REGISTER BUTTON */
-    .sticky-register {
-        position: fixed;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 92%;
-        max-width: 420px;
-        padding: 16px;
-        border-radius: 40px;
-        background: linear-gradient(135deg, #00f5ff, #00ff99);
-        color: #003c40;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 900;
-        text-decoration: none;
-        z-index: 999;
-    }
-</style>
-</head>
-<body>
-    <div class="android">
-        <!-- HERO -->
-        <div class="hero">
-            <div class="title">
-                <h1>SANTIPUR YOUTH ASSOCIATION </h1>
-                <h1>BADMINTON TOURNAMENT</h1>
-                <h2>SEASON 4</h2>
-            </div>
-            <div class="highlight">
-                <h4>LIVE SCORE</h4>
-                <p id="liveScore">0 - 0</p>
-                <small id="liveStatus">Waiting...</small>
-            </div>
-            <div class="highlight">
-                <h4>NEXT MATCH</h4>
-                <p id="nextMatch">Loading...</p>
-            </div>
-            <style>
-                body {
-                    margin: 0;
-                    font-family: Arial;
-                    background: #02090c;
-                    color: #fff;
-                }
-
-                /* ===== SLIDER ===== */
-                .slider {
-                    max-width: 360px;
-                    height: 220px;
-                    margin: 30px auto;
-                    overflow: hidden;
-                    border: 2px solid #aaa;
-                    border-radius: 14px;
-                    background: #000;
-                }
-                .slides {
-                    display: flex;
-                    transition: .6s ease;
-                }
-                .slide {
-                    min-width: 100%;
-                    height: 220px;
-                    object-fit: cover;
-                }
-                /* DOTS */
-                .dots {
-                    text-align: center;
-                    margin-top: 8px;
-                }
-                .dots span {
-                    width: 9px;
-                    height: 9px;
-                    border-radius: 50%;
-                    border: 2px solid #666;
-                    display: inline-block;
-                    margin: 0 4px;
-                }
-                .dots span.active {
-                    background: #00f5ff;
-                    border-color: #00f5ff;
-                }
-                /* MODAL */
-                .modal {
-                    display: none;
-                    position: fixed;
-                    inset: 0;
-                    background: rgba(0, 0, 0, .9);
-                    z-index: 9999;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .modal img,
-                .modal video {
-                    max-width: 95%;
-                    max-height: 90%;
-                    border-radius: 14px;
-                }
-            </style>
-            </head>
-
-            <body>
-                <h3 style="text-align:center">📸🎥 Tournament Gallery</h3>
-                <div class="slider">
-                    <div class="slides" id="slides">
-                        <!-- IMAGE -->
-                        <img src="work1.jpeg" class="slide" onclick="openImg(this.src)">
-                        <!-- VIDEO 1 -->
-                        <video class="slide slider-video" src="work2.mp4" muted playsinline loop></video>
-                        <!-- VIDEO 2 -->
-                        <video class="slide slider-video" src="work3.mp4" muted playsinline loop></video>
-                    </div>
-                </div>
-                <div class="dots" id="dots">
-                    <span></span><span></span><span></span>
-                </div>
-                <!-- IMAGE MODAL -->
-                <div id="imgModal" class="modal">
-                    <button class="back-btn" onclick="closeImg()">← Back</button>
-                    <img id="modalImg">
-                </div>
-                <!-- VIDEO MODAL -->
-                <div id="videoModal" class="modal">
-                    <button class="back-btn" onclick="closeVideo()">← Back</button>
-                    <video id="modalVideo" controls></video>
-                </div>
-                <style>
-                    .modal {
-                        display: none;
-                        position: fixed;
-                        inset: 0;
-                        background: rgba(0, 0, 0, .9);
-                        z-index: 9999;
-                        align-items: center;
-                        justify-content: center;
-                    }
-
-                    .modal img,
-                    .modal video {
-                        max-width: 95%;
-                        max-height: 90%;
-                        border-radius: 14px;
-                    }
-
-                    .back-btn {
-                        position: absolute;
-                        top: 15px;
-                        left: 15px;
-                        padding: 10px 16px;
-                        border: none;
-                        border-radius: 20px;
-                        background: linear-gradient(135deg, #00f5ff, #00ff99);
-                        color: #003c40;
-                        font-weight: bold;
-                        cursor: pointer;
-                        z-index: 10000;
-                    }
-                </style>
-
-                <script>
-                    let index = 0;
-                    const slides = document.getElementById("slides");
-                    const dots = document.querySelectorAll("#dots span");
-                    const videos = document.querySelectorAll(".slider-video");
-
-                    function showSlide() {
-                        slides.style.transform = `translateX(-${index * 100}%)`;
-                        dots.forEach(d => d.classList.remove("active"));
-                        dots[index].classList.add("active");
-                        videos.forEach(v => v.pause());
-                        if (index > 0) { videos[index - 1].play(); }
-                        index = (index + 1) % dots.length;
-                    }
-                    setInterval(showSlide, 3500);
-                    showSlide();
-
-                    function openImg(src) {
-                        modalImg.src = src;
-                        imgModal.style.display = "flex";
-                    }
-                    function closeImg() {
-                        imgModal.style.display = "none";
-                    }
-
-                    function openVideo(src) {
-                        modalVideo.src = src;
-                        modalVideo.muted = false;
-                        modalVideo.play();
-                        videoModal.style.display = "flex";
-                    }
-                    function closeVideo() {
-                        modalVideo.pause();
-                        modalVideo.src = "";
-                        videoModal.style.display = "none";
-                    }
-
-                    videos.forEach(v => {
-                        v.addEventListener("click", () => openVideo(v.src));
-                    });
-                </script>
-
-
-                <div class="prizes">
-                    <div class="prize gold"><small>1ST PRIZE</small>
-                        <h4>₹15,001</h4>
-                    </div>
-                    <div class="prize"><small>2ND PRIZE</small>
-                        <h4>₹10,001</h4>
-                    </div>
-                </div>
-
-                <div class="fee">JOINING FEE<br><span>₹401 ONLY</span></div>
-
-                <div class="icons">
-                    <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
-                    <a href="location.html" class="icon">📍<br>VENUE</a>
-                    <a href="contuct.html" class="icon">📞<br>CONTACT</a>
-                </div>
-        </div>
-        <!-- ABOUT -->
-        <section>
-            <h2>About Tournament</h2>
-            <p>
-                Santipur Youth Association Badminton Tournament is organised every year
-                to promote sportsmanship and youth talent.
-            </p>
-        </section>
-
-        <!-- RULES (RESTORED) -->
-        <section class="rules">
-            <h2>🏸 খেলৰ নিয়মাৱলী</h2>
-            <ol style="padding-left:20px;line-height:1.8;opacity:.9">
-                <li>খেল সমূহ আবেলি ৪ বজাৰ পৰা আৰম্ভ কৰা হ’ব।</li>
-                <li>খেল সমূহ Knock Out পদ্ধতিত অনুষ্ঠিত কৰা হ’ব।</li>
-                <li>প্ৰতিটো দলত ২ জনকৈ খেলুৱৈ খেলিব পাৰিব।</li>
-                <li>এটা দলৰ খেলুৱৈ আন এটা দলত খেলিব নোৱাৰিব।</li>
-                <li>আম্পায়াৰৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
-                <li>খেল সমূহ Running Point ত অনুষ্ঠিত কৰা হ’ব।</li>
-                <li>আঘাত প্ৰাপ্ত হ’লে কমিটি দায়ী নহয়।</li>
-                <li>কমিটিৰ সিদ্ধান্ত চূড়ান্ত বুলি গণ্য কৰা হ’ব।</li>
-            </ol>
-        </section>
-
-        <!-- SCHEDULE -->
-        <section>
-            <h2>Match Schedule</h2>
-            <div style="background:var(--glass);padding:10px;border-radius:8px;margin-bottom:8px">
-                17 Jan 2026 – Opening Matches
-            </div>
-            <div style="background:var(--glass);padding:10px;border-radius:8px">
-                18 Jan 2026 – Semi Final & Final
-            </div>
-        </section>
-            </div>
-        </section>
-
-        <footer>© 2026 Santipur Youth Association</footer>
-    </div>
-
-    <a class="sticky-register"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSdvdH39ynAJms2HWMeqHXalwVdQF9fRRSJlkrhI5wtdke5gGg/viewform">
-        ▶ REGISTER NOW
-    </a>
 
 </body>
 
 </html>
-
