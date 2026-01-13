@@ -431,6 +431,15 @@
             document.getElementById("nextMatch").innerText =
                 `${n.team1} vs ${n.team2}`;
         });
+        /* UPCOMING MATCHES AUTO LOAD */
+onValue(ref(db, "upcomingMatches"), (snapshot) => {
+    let html = "";
+    snapshot.forEach(item => {
+        const m = item.val();
+        html += `<li>${m.team1} vs ${m.team2}</li>`;
+    });
+    document.getElementById("upcomingBox").innerHTML = html;
+});
     </script>
 
 
@@ -496,4 +505,5 @@
 </body>
 
 </html>
+
 
