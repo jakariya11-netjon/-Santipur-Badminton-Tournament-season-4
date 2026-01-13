@@ -6,204 +6,237 @@
     <title>Admin Panel – Live Control</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            background: #02090c;
-            color: #fff;
-            font-family: Poppins, sans-serif;
-            display: flex;
-            justify-content: center;
-        }
-
-        .android {
-            width: 100%;
-            max-width: 430px;
-            padding: 20px;
-        }
-
-        h2,
-        h3 {
-            text-align: center;
-            font-family: Orbitron;
-        }
-
-        h2 {
-            color: #00f5ff;
-            text-shadow: 0 0 15px #00f5ff;
-            margin-bottom: 20px;
-        }
-
-        h3 {
-            color: #ff2fa6;
-            margin-top: 25px;
-            text-shadow: 0 0 10px #ff2fa6;
-        }
-
-        .box {
-            background: rgba(255, 255, 255, 0.06);
-            padding: 18px;
-            border-radius: 15px;
-            margin-top: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
-        }
-
-        input {
-            width: 100%;
-            padding: 14px;
-            margin: 8px 0;
-            background: rgba(255, 255, 255, 0.08);
-            border: none;
-            border-radius: 10px;
-            color: white;
-            outline: none;
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 8px;
-            border: none;
-            font-weight: bold;
-            font-size: 16px;
-            border-radius: 12px;
-            color: #003840;
-            cursor: pointer;
-            background: linear-gradient(135deg, #00f5ff, #00ff99);
-            box-shadow: 0 0 15px rgba(0, 255, 200, 0.4);
-        }
-
-        .line {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.15);
-            margin: 25px 0;
-        }
-    </style>
+<style>
+    body{
+        margin:0;
+        background:#02090c;
+        color:#fff;
+        font-family:Poppins, sans-serif;
+        display:flex;
+        justify-content:center;
+    }
+    .android{
+        width:100%;
+        max-width:430px;
+        padding:20px;
+    }
+    h2,h3{
+        text-align:center;
+        font-family:Orbitron;
+    }
+    h2{
+        color:#00f5ff;
+        margin-bottom:20px;
+        text-shadow:0 0 15px #00f5ff;
+    }
+    h3{
+        color:#ff2fa6;
+        margin-top:25px;
+        text-shadow:0 0 10px #ff2fa6;
+    }
+    .box{
+        background:rgba(255,255,255,0.06);
+        padding:18px;
+        border-radius:15px;
+        margin-top:10px;
+        border:1px solid rgba(255,255,255,0.15);
+    }
+    input,select{
+        width:100%;
+        padding:14px;
+        margin:8px 0;
+        background:rgba(255,255,255,0.08);
+        border:none;
+        border-radius:10px;
+        color:white;
+        outline:none;
+    }
+    button{
+        width:100%;
+        padding:15px;
+        margin-top:10px;
+        background:linear-gradient(135deg,#00f5ff,#00ff99);
+        border:none;
+        border-radius:12px;
+        font-weight:bold;
+        font-size:16px;
+        color:#003840;
+        cursor:pointer;
+    }
+    .line{
+        height:1px;
+        background:rgba(255,255,255,0.2);
+        margin:25px 0;
+    }
+</style>
 
 </head>
 
 <body>
 
-    <div class="android">
+<div class="android">
 
-        <script>
-            if (prompt("Enter Admin Password") !== "admin123") {
-                alert("Wrong Password!");
-                location.href = "index.html";
-            }
-        </script>
+<script>
+    if(prompt("Enter Admin Password")!=="admin123"){
+        alert("Wrong Password!");
+        location.href="index.html";
+    }
+</script>
 
-        <h2>🏸 ADMIN CONTROL PANEL</h2>
+<h2>🏸 ADMIN CONTROL PANEL</h2>
 
-        <!-- Live Score Box -->
-        <div class="box">
-            <h3>Live Score Update</h3>
-            <input id="t1" placeholder="Team 1 Name">
-            <input id="t2" placeholder="Team 2 Name">
-            <input id="s1" type="number" placeholder="Score 1">
-            <input id="s2" type="number" placeholder="Score 2">
-            <button onclick="updateScore()">UPDATE LIVE SCORE</button>
-            <button onclick="finishMatch()" style="background:#ff2fa6;">FINISH MATCH</button>
+<!-- LIVE SCORE -->
+<div class="box">
+    <h3>Live Score Update</h3>
+
+    <input id="t1" placeholder="Team 1 Name">
+    <input id="t2" placeholder="Team 2 Name">
+    <input id="s1" type="number" placeholder="Score 1">
+    <input id="s2" type="number" placeholder="Score 2">
+
+    <button onclick="updateScore()">UPDATE LIVE SCORE</button>
+    <button onclick="finishMatch()" style="background:#ff2fa6;margin-top:5px;">FINISH MATCH</button>
+</div>
+
+<div class="line"></div>
+
+<!-- NEXT MATCH -->
+<div class="box">
+    <h3>Next Match (Auto Team List)</h3>
+
+    <select id="nt1">
+        <option>Select Team 1</option>
+    </select>
+
+    <select id="nt2">
+        <option>Select Team 2</option>
+    </select>
+
+    <button onclick="updateNext()">UPDATE NEXT MATCH</button>
+</div>
+
+<div class="line"></div>
+
+<!-- UPCOMING MATCH CONTROL -->
+<div class="box">
+    <h3>Upcoming Matches</h3>
+
+    <input id="upT1" placeholder="Team 1">
+    <input id="upT2" placeholder="Team 2">
+    <button onclick="addUpcoming()">ADD UPCOMING MATCH</button>
+
+    <h4 style="margin-top:15px;color:#00f5ff;">Upcoming List</h4>
+    <div id="upcomingList">Loading...</div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+import { getDatabase, ref, set, push, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey:"AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
+    authDomain:"live-score-1dc40.firebaseapp.com",
+    databaseURL:"https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId:"live-score-1dc40",
+    storageBucket:"live-score-1dc40.firebasestorage.app",
+    messagingSenderId:"24992738262",
+    appId:"1:24992738262:web:7521ab00008c2b8156d277"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+/* AUTO LOAD TEAMS INTO NEXT MATCH DROPDOWN */
+onValue(ref(db,"teams"), (snap)=>{
+    nt1.innerHTML = "<option>Select Team 1</option>";
+    nt2.innerHTML = "<option>Select Team 2</option>";
+
+    snap.forEach(item=>{
+        let t = item.val().name;
+        nt1.innerHTML += `<option>${t}</option>`;
+        nt2.innerHTML += `<option>${t}</option>`;
+    });
+});
+
+/* UPDATE LIVE SCORE */
+window.updateScore = () => {
+    set(ref(db,"liveMatch"),{
+        team1:t1.value,
+        team2:t2.value,
+        score1:Number(s1.value),
+        score2:Number(s2.value)
+    });
+};
+
+/* UPDATE NEXT MATCH */
+window.updateNext = () => {
+    set(ref(db,"nextMatch"),{
+        team1:nt1.value,
+        team2:nt2.value
+    });
+};
+
+/* FINISH MATCH → SAVE TO HISTORY + RESET */
+window.finishMatch = () => {
+
+    let data = {
+        team1:t1.value,
+        team2:t2.value,
+        score1:Number(s1.value),
+        score2:Number(s2.value),
+        time:new Date().toLocaleString()
+    };
+
+    push(ref(db,"history"), data);
+
+    set(ref(db,"liveMatch"),{
+        team1:"Waiting",
+        team2:"",
+        score1:0,
+        score2:0
+    });
+
+    t1.value=""; t2.value="";
+    s1.value=""; s2.value="";
+};
+
+/* ADD UPCOMING MATCH */
+window.addUpcoming = () => {
+    if(upT1.value.trim()==="" || upT2.value.trim()==="") return;
+
+    push(ref(db,"upcomingMatches"),{
+        team1:upT1.value,
+        team2:upT2.value
+    });
+
+    upT1.value="";  
+    upT2.value="";
+};
+
+/* LOAD UPCOMING MATCH LIST */
+onValue(ref(db,"upcomingMatches"), snap => {
+    let html = "";
+    snap.forEach(item=>{
+        const id = item.key;
+        const m = item.val();
+        html += `
+        <div style="padding:10px;background:rgba(255,255,255,0.05);border-radius:8px;margin-bottom:8px;">
+            ${m.team1} VS ${m.team2}
+            <button onclick="delUpcoming('${id}')" 
+            style="float:right;background:#ff2fa6;color:white;padding:5px 12px;border:none;border-radius:6px;">
+            DELETE</button>
         </div>
+        `;
+    });
+    upcomingList.innerHTML = html;
+});
 
-        <div class="line"></div>
+/* DELETE UPCOMING MATCH */
+window.delUpcoming = (id) => {
+    set(ref(db,"upcomingMatches/"+id), null);
+};
+</script>
 
-        <!-- Next Match Box -->
-        <div class="box">
-            <h3>Next Match</h3>
-            <input id="nt1" placeholder="Next Match Team 1">
-            <input id="nt2" placeholder="Next Match Team 2">
-            <button onclick="updateNext()">UPDATE NEXT MATCH</button>
-        </div>
-
-        <div class="line"></div>
-
-        <!-- TEAM ADD BOX -->
-        <div class="box">
-            <h3>Add Team</h3>
-            <input id="newTeam" placeholder="Enter Team Name">
-            <button onclick="addTeam()">ADD TEAM</button>
-        </div>
-
-        <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
-            import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
-
-            const firebaseConfig = {
-                apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
-                authDomain: "live-score-1dc40.firebaseapp.com",
-                databaseURL: "https://live-score-1dc40-default-rtdb.asia-southeast1.firebasedatabase.app",
-                projectId: "live-score-1dc40",
-                storageBucket: "live-score-1dc40.firebasestorage.app",
-                messagingSenderId: "24992738262",
-                appId: "1:24992738262:web:7521ab00008c2b8156d277"
-            };
-
-            const app = initializeApp(firebaseConfig);
-            const db = getDatabase(app);
-
-            /* 1️⃣ UPDATE LIVE SCORE */
-            window.updateScore = () => {
-                set(ref(db, "liveMatch"), {
-                    team1: t1.value,
-                    team2: t2.value,
-                    score1: Number(s1.value),
-                    score2: Number(s2.value)
-                });
-                alert("Live Score Updated!");
-            };
-
-            /* 2️⃣ UPDATE NEXT MATCH */
-            window.updateNext = () => {
-                set(ref(db, "nextMatch"), {
-                    team1: nt1.value,
-                    team2: nt2.value
-                });
-                alert("Next Match Updated!");
-            };
-
-            /* 3️⃣ FINISH MATCH → ADD TO HISTORY + RESET */
-            window.finishMatch = () => {
-
-                let data = {
-                    team1: t1.value,
-                    team2: t2.value,
-                    score1: Number(s1.value),
-                    score2: Number(s2.value),
-                    time: new Date().toLocaleString()
-                };
-
-                push(ref(db, "history"), data);   //save history
-
-                set(ref(db, "liveMatch"), {         //reset
-                    team1: "Waiting",
-                    team2: "",
-                    score1: 0,
-                    score2: 0
-                });
-
-                t1.value = ""; t2.value = "";
-                s1.value = ""; s2.value = "";
-
-                alert("Match Finished & Saved!");
-            };
-
-            /* 4️⃣ ADD TEAM */
-            window.addTeam = () => {
-                if (newTeam.value.trim() === "") {
-                    alert("Enter team name!");
-                    return;
-                }
-                push(ref(db, "teams"), {
-                    name: newTeam.value
-                });
-                alert("Team Added!");
-                newTeam.value = "";
-            };
-        </script>
-
-    </div>
+</div>
 </body>
-
 </html>
