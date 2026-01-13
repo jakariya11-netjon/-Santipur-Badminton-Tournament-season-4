@@ -3,20 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <!-- ✅ SEO META (script-ৰ আগতে) -->
     <title>Santipur Badminton Tournament | Badminton Tournament in Assam</title>
-
     <meta name="description"
         content="Santipur Badminton Tournament organised by Santipur Youth Association in Assam. A popular badminton tournament in Assam with live score and registration.">
-
     <meta name="robots" content="index, follow">
-
     <!-- Firebase Script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
         import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-database.js";
-
         const firebaseConfig = {
             apiKey: "AIzaSyBsryK9TnDhtqLoeM5ZEWhSA31v29Dz5tk",
             authDomain: "live-score-1dc40.firebaseapp.com",
@@ -64,13 +58,11 @@
         --dark: #02090c;
         --glass: rgba(255, 255, 255, .08);
     }
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box
     }
-
     body {
         font-family: Poppins, sans-serif;
         color: #fff;
@@ -78,16 +70,13 @@
         background-size: 400% 400%;
         animation: bg 15s ease infinite;
     }
-
     @keyframes bg {
         0% {
             background-position: 0% 50%
         }
-
         50% {
             background-position: 100% 50%
         }
-
         100% {
             background-position: 0% 50%
         }
@@ -97,7 +86,6 @@
         max-width: 430px;
         margin: auto
     }
-
     /* HERO */
     .hero {
         min-height: 100vh;
@@ -109,12 +97,10 @@
         background-position: center;
         border-bottom: 2px solid var(--neon-cyan);
     }
-
     .title {
         text-align: center;
         margin-top: 20px
     }
-
     .title h1 {
         font-size: 26px;
         /* h1 ডাঙৰ */
@@ -122,14 +108,12 @@
         opacity: .85;
         font-family: Orbitron;
     }
-
     .title h2 {
         font-size: 18px;
         /* SEASON 4 অলপ সৰু */
         color: var(--neon-cyan);
         font-family: Orbitron;
     }
-
     }
 
     .title h2 {
@@ -160,24 +144,20 @@
         text-align: center;
         box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
     }
-
     .highlight h4 {
         font-family: Orbitron;
         color: var(--neon-pink);
         font-size: 15px
     }
-
     .highlight p {
         font-size: 20px;
         font-weight: 900
     }
-
     /* PRIZE */
     .prizes {
         display: flex;
         gap: 14px
     }
-
     .prize {
         flex: 1;
         background: var(--glass);
@@ -185,15 +165,12 @@
         border-radius: 18px;
         text-align: center;
     }
-
     .prize.gold {
         border: 1px solid var(--gold)
     }
-
     .prize.gold h4 {
         color: var(--gold)
     }
-
     .fee {
         max-width: 260px;
         margin: 10px auto 18px;
@@ -202,20 +179,17 @@
         border: 2px solid var(--neon-cyan);
         text-align: center;
     }
-
     .fee span {
         font-size: 20px;
         color: var(--neon-cyan);
         font-weight: 800
     }
-
     /* ICONS */
     .icons {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 14px
     }
-
     .icon {
         padding: 16px 10px;
         border-radius: 18px;
@@ -225,30 +199,16 @@
         color: #fff;
         text-decoration: none;
     }
-
     /* SECTIONS */
     section {
         padding: 45px 18px;
         border-bottom: 1px solid rgba(255, 255, 255, .05);
     }
-
     section h2 {
         font-family: Orbitron;
         color: var(--neon-cyan);
         margin-bottom: 12px;
     }
-
-    /* LIVE NOTICE */
-    .notice-box {
-        width: 100%;
-        padding: 26px;
-        border-radius: 26px;
-        background: linear-gradient(135deg, rgba(0, 245, 255, .15), rgba(255, 47, 166, .15));
-        border: 2px solid rgba(255, 47, 166, .5);
-        text-align: center;
-        box-shadow: 0 0 20px rgba(255, 47, 166, .3), inset 0 0 15px rgba(0, 245, 255, .2);
-    }
-
     .notice-box h3 {
         font-family: Orbitron;
         color: var(--neon-pink);
@@ -260,7 +220,6 @@
         font-size: 13px;
         line-height: 1.7;
     }
-
     /* FOOTER */
     footer {
         text-align: center;
@@ -268,7 +227,6 @@
         font-size: 12px;
         opacity: .5;
     }
-
     /* REGISTER BUTTON */
     .sticky-register {
         position: fixed;
@@ -289,10 +247,8 @@
     }
 </style>
 </head>
-
 <body>
     <div class="android">
-
         <!-- HERO -->
         <div class="hero">
             <div class="title">
@@ -327,24 +283,20 @@
                     border-radius: 14px;
                     background: #000;
                 }
-
                 .slides {
                     display: flex;
                     transition: .6s ease;
                 }
-
                 .slide {
                     min-width: 100%;
                     height: 220px;
                     object-fit: cover;
                 }
-
                 /* DOTS */
                 .dots {
                     text-align: center;
                     margin-top: 8px;
                 }
-
                 .dots span {
                     width: 9px;
                     height: 9px;
@@ -353,12 +305,10 @@
                     display: inline-block;
                     margin: 0 4px;
                 }
-
                 .dots span.active {
                     background: #00f5ff;
                     border-color: #00f5ff;
                 }
-
                 /* MODAL */
                 .modal {
                     display: none;
@@ -380,40 +330,30 @@
             </head>
 
             <body>
-
                 <h3 style="text-align:center">📸🎥 Tournament Gallery</h3>
-
                 <div class="slider">
                     <div class="slides" id="slides">
-
                         <!-- IMAGE -->
                         <img src="work1.jpeg" class="slide" onclick="openImg(this.src)">
-
                         <!-- VIDEO 1 -->
                         <video class="slide slider-video" src="work2.mp4" muted playsinline loop></video>
-
                         <!-- VIDEO 2 -->
                         <video class="slide slider-video" src="work3.mp4" muted playsinline loop></video>
-
                     </div>
                 </div>
-
                 <div class="dots" id="dots">
                     <span></span><span></span><span></span>
                 </div>
-
                 <!-- IMAGE MODAL -->
                 <div id="imgModal" class="modal">
                     <button class="back-btn" onclick="closeImg()">← Back</button>
                     <img id="modalImg">
                 </div>
-
                 <!-- VIDEO MODAL -->
                 <div id="videoModal" class="modal">
                     <button class="back-btn" onclick="closeVideo()">← Back</button>
                     <video id="modalVideo" controls></video>
                 </div>
-
                 <style>
                     .modal {
                         display: none;
@@ -503,12 +443,10 @@
 
                 <div class="icons">
                     <a href="comeetee.html" class="icon">👥<br>COMMITTEE</a>
-                    <a href="updates.html" class="icon">🔔<br>UPDATES</a>
                     <a href="location.html" class="icon">📍<br>VENUE</a>
                     <a href="contuct.html" class="icon">📞<br>CONTACT</a>
                 </div>
         </div>
-
         <!-- ABOUT -->
         <section>
             <h2>About Tournament</h2>
@@ -543,17 +481,6 @@
                 18 Jan 2026 – Semi Final & Final
             </div>
         </section>
-
-        <!-- LIVE NOTICE -->
-        <section class="live-notice">
-            <h2>📢 Live Notice</h2>
-            <div class="notice-box">
-                <h3>📢 SPONSOR উপলব্ধ</h3>
-                <p>
-                    Santipur Youth Association Badminton Tournament ৰ বাবে Sponsor উপলব্ধ।<br>
-                    ব্যৱসায়ী আৰু ব্যক্তি সকলে টুৰ্ণামেণ্ট সময়ছোৱাত নিজৰ <b>Brand</b> প্ৰচাৰ কৰিব পাৰিব।<br>
-                    📞 অধিক তথ্যৰ বাবে <b>Organizing Committee</b> ৰ সৈতে যোগাযোগ কৰক।
-                </p>
             </div>
         </section>
 
@@ -568,3 +495,4 @@
 </body>
 
 </html>
+
